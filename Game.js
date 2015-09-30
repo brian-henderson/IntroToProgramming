@@ -14,18 +14,43 @@ var messageClearing = "You have reached a clearing in the jungle. Wait. What is 
 var messageSouthStop = "You cant go south here. Try a different direction.";
 var messageWestStop = "Hrmm. Looks like going west is not an option. Try another direction.";
 
+var score = 0;
+var scoreJungle = true;
+var scoreCliff = true;
+var scoreCliffBridge = true;
+var scoreArchway = true;
+var scoreJungleDeadEnd = true;
+var scoreJungleClearing = true;
+var scoreTemple = true;
+
 function showMessage(descrip){
 	document.getElementById("message").innerHTML = descrip;
+}
+
+function showScore(descrip) {
+	document.getElementById("score").innerHTML = descrip;
 }
 
 function North () {
 	if (currentLocation === "beach") {
 		currentLocation = "jungle";
 		showMessage(messageJungle);
+
+		if (scoreJungle === true) {
+			score += 5;
+			scoreJungle = false;
+			showScore(score);
+		}
 	
 	} else if (currentLocation === "cliff") {
 		currentLocation = "cliffBridge";
 		showMessage(messageCliffBridge);
+
+		if (scoreCliffBridge === true) {
+			score += 5;
+			scoreCliffBridge = false;
+			showScore(score);
+		}
 	
 	} else if (currentLocation === "archway") {
 		currentLocation = "jungleDeadEnd";
@@ -41,13 +66,31 @@ function East () {
 		currentLocation = "cliff";
 		showMessage(messageCliff);
 
+		if (scoreCliff === true) {
+			score += 5;
+			scoreCliff = false;
+			showScore(score);
+		}
+
 	} else if (currentLocation ==="cliffBridge") {
 		currentLocation = "archway";
 		showMessage(messageArchway);
+
+		if (scoreArchway === true) {
+			score += 5;
+			scoreArchway = false;
+			showScore(score);
+		}
 	
 	} else if (currentLocation === "jungleClearing") {
 		currentLocation = "temple";
 		showMessage(messageTemple);
+
+		if (scoreTemple === true) {
+			score += 5;
+			scoreTemple = false;
+			showScore(score);
+		}
 	
 	} else {
 		showMessage(messageEastStop);
@@ -70,6 +113,12 @@ function South () {
 	} else if (currentLocation === "archway") {
 		currentLocation = "jungleClearing";
 		showMessage(messageClearing);
+
+		if (scoreJungleClearing === true) {
+			score += 5;
+			scoreJungleClearing = false;
+			showScore(score);
+		}
 	
 	} else {
 		showMessage(messageSouthStop);
@@ -89,4 +138,3 @@ function West () {
 			showMessage(messageWestStop);
 		}
 }
-
