@@ -137,4 +137,3 @@ function West () {
 		} else {
 			showMessage(messageWestStop);
 		}
-}
