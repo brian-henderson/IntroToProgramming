@@ -126,14 +126,15 @@ function South () {
 }
 
 function West () {
-		if (currentLocation === "cliff") {
-			currentLocation = "jungle";
-			showMessage(messageJungle);
+	if (currentLocation === "cliff") {
+		currentLocation = "jungle";
+		showMessage(messageJungle);
+	
+	} else if (currentLocation === "archway") {
+		currentLocation = "cliffBridge";
+		showMessage(messageCliffBridge);
 		
-		} else if (currentLocation === "archway") {
-			currentLocation = "cliffBridge";
-			showMessage(messageCliffBridge);
-		
-		} else {
-			showMessage(messageWestStop);
-		}
+	} else {
+		showMessage(messageWestStop);
+	}
+}
