@@ -1,8 +1,8 @@
 var currentLocation = "beach";
 
 var messageBeach = "You are back on the beach."
-var messageJungle = "You are deep in the jungle right now. Maybe you should switch directions.";
-var messageCliffBridge = "Ah you were right! You have reached an old rope bridge, but it looks old and dangerous. Looks like it is the only way across though.";
+var messageJungle = "You have reached the jungle. After traveling for a few miles, maybe change directions.";
+var messageCliffBridge = "Ah you were right! You have reached an old rope bridge, but it looks old and dangerous. Looks like it is the only way cross the valley east though and might be worth taking a chance.";
 var messageJungleDeadEnd = "You have reached a dead end as you are stopped by a waterfall. Try turning around.";
 var messageNorthStop = "You can not go north this way! Try a different direction.";
 var messageCliff = "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north."
@@ -80,6 +80,7 @@ function East () {
 			scoreTemple = false;
 			showScore(score);
 		}
+		alert('YOU WIN!! YOU HAVE REACHED THE TEMPLE OF ABOUBAKER! THATS ALL FOR NOW! I WONDER WHAT THE FUTURE HOLDS. TILL NEXT TIME! THANKS FOR PLAYING!!!');
 	} else {
 		showMessage(messageEastStop);
 	}		
@@ -117,4 +118,8 @@ function West () {
 	} else {
 		showMessage(messageWestStop);
 	}
+}
+
+function Reload () {
+	location.reload();
 }
