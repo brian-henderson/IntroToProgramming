@@ -3,7 +3,6 @@ var currentLocation = "beach";
 var messageBeach = "You are back on the beach."
 var messageJungleDeadEnd = "You have reached a dead end as you are stopped by a waterfall. Try turning around.";
 var messageNorthStop = "You can not go north this way! Try a different direction.";
-var messageArchway = "Yay! You have safely crossed the bridge! There is a sign that points North and South, but you are unable to interprete the ancient symbols.";
 var messageTemple = "You have reached the ancient ruins of the Temple of Aboubaker!";
 var messageEastStop = "You can not head east here! Try a different direction.";
 var messageClearing = "You have reached a clearing in the jungle. You begin to loose hope after hours of searc...Wait. Whats that off to the east?";
@@ -44,13 +43,7 @@ function East () {
 	if (currentLocation === "jungle") {
 		cliff ();
 	} else if (currentLocation ==="cliffBridge") {
-		currentLocation = "archway";
-		showMessage(messageArchway);
-		if (scoreArchway === true) {
-			score += 5;
-			scoreArchway = false;
-			showScore(score);
-		}	
+		archway ();	
 	} else if (currentLocation === "jungleClearing") {
 		currentLocation = "temple";
 		showMessage(messageTemple);
@@ -72,8 +65,7 @@ function South () {
 	} else if (currentLocation === "cliffBridge") {
 		cliff ();
 	} else if (currentLocation === "jungleDeadEnd") {
-		currentLocation = "archway";
-		showMessage(messageArchway);
+		archway ();
 	} else if (currentLocation === "archway") {
 		currentLocation = "jungleClearing";
 		showMessage(messageClearing);
@@ -130,6 +122,17 @@ function cliffBridge () {
 		if (scoreCliffBridge === true) {
 			score += 5;
 			scoreCliffBridge = false;
+			showScore(score);
+		}
+}
+
+function archway () {
+	currentLocation = "archway";
+	var message = "Yay! You have safely crossed the bridge! There is a sign that points North and South, but you are unable to interprete the ancient symbols.";
+	showMessage(message);
+		if (scoreArchway === true) {
+			score += 5;
+			scoreArchway = false;
 			showScore(score);
 		}
 }
