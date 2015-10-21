@@ -156,7 +156,7 @@ function Reload () {
 }
 
 function directionInput (direction) {
-	if (direction === "N") {
+	if (direction === "N" || direction === "n") {
 		North ();	
 	}
 }
