@@ -1,12 +1,8 @@
 var currentLocation = "beach";
 
 var messageBeach = "You are back on the beach."
-var messageJungle = "You have reached the jungle. After traveling for a few miles, maybe change directions.";
-var messageCliffBridge = "Ah you were right! You have reached an old rope bridge, but it looks old and dangerous. Looks like it is the only way cross the valley east though and might be worth taking a chance.";
 var messageJungleDeadEnd = "You have reached a dead end as you are stopped by a waterfall. Try turning around.";
 var messageNorthStop = "You can not go north this way! Try a different direction.";
-var messageCliff = "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north."
-var messageCliff2 = "You are back by the edge of the cliff from before. Try going north again towards the bridge. It may be the only option.";
 var messageArchway = "Yay! You have safely crossed the bridge! There is a sign that points North and South, but you are unable to interprete the ancient symbols.";
 var messageTemple = "You have reached the ancient ruins of the Temple of Aboubaker!";
 var messageEastStop = "You can not head east here! Try a different direction.";
@@ -35,13 +31,7 @@ function North () {
 	if (currentLocation === "beach") {
 		jungle ();
 	} else if (currentLocation === "cliff") {
-		currentLocation = "cliffBridge";
-		showMessage(messageCliffBridge);
-		if (scoreCliffBridge === true) {
-			score += 5;
-			scoreCliffBridge = false;
-			showScore(score);
-		}
+		cliffBridge ();
 	} else if (currentLocation === "archway") {
 		currentLocation = "jungleDeadEnd";
 		showMessage(messageJungleDeadEnd);
@@ -101,8 +91,7 @@ function West () {
 	if (currentLocation === "cliff") {
 		jungle ();
 	} else if (currentLocation === "archway") {
-		currentLocation = "cliffBridge";
-		showMessage(messageCliffBridge);
+		cliffBridge ();
 	} else {
 		showMessage(messageWestStop);
 	}
@@ -132,6 +121,17 @@ function cliff () {
 			scoreCliff = false;
 			showScore(score);
 	}	
+}
+
+function cliffBridge () {
+	currentLocation = "cliffBridge";
+	var message = "Ah you were right! You have reached an old rope bridge, but it looks old and dangerous. Looks like it is the only way cross the valley east though and might be worth taking a chance.";
+	showMessage(message);
+		if (scoreCliffBridge === true) {
+			score += 5;
+			scoreCliffBridge = false;
+			showScore(score);
+		}
 }
 
 
