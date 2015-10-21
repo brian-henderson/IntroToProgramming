@@ -52,13 +52,7 @@ function North () {
 
 function East () {
 	if (currentLocation === "jungle") {
-		currentLocation = "cliff";
-		showMessage(messageCliff);
-		if (scoreCliff === true) {
-			score += 5;
-			scoreCliff = false;
-			showScore(score);
-		}
+		cliff ();
 	} else if (currentLocation ==="cliffBridge") {
 		currentLocation = "archway";
 		showMessage(messageArchway);
@@ -86,8 +80,7 @@ function South () {
 		currentLocation = "beach";
 		showMessage(messageBeach);	
 	} else if (currentLocation === "cliffBridge") {
-		currentLocation = "cliff";
-		showMessage(messageCliff2);
+		cliff ();
 	} else if (currentLocation === "jungleDeadEnd") {
 		currentLocation = "archway";
 		showMessage(messageArchway);
@@ -130,6 +123,16 @@ function jungle () {
 		}	
 }
 
+function cliff () {
+	currentLocation = "cliff";
+	var message = "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north."
+	showMessage(message);
+		if (scoreCliff === true) {
+			score += 5;
+			scoreCliff = false;
+			showScore(score);
+	}	
+}
 
 
 
