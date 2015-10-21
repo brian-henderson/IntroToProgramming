@@ -158,8 +158,17 @@ function Reload () {
 function directionInput (direction) {
 	if (direction === "N" || direction === "n") {
 		North ();	
+	} else if (direction === "S" || direction ==="s"){
+		South ();
+	} else if (direction === "E" || direction ==="e"){
+		East ();
+	} else if (direction === "W" || direction ==="w") {
+		West ();
+	} else {
+		alert("That's not a correct input! Please enter on of the following: N,n,E,e,S,s,W,w");
 	}
 }
+
 
 
 
