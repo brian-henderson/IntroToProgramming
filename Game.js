@@ -1,7 +1,6 @@
 var currentLocation = "beach";
 
 var messageBeach = "You are back on the beach."
-var messageJungleDeadEnd = "You have reached a dead end as you are stopped by a waterfall. Try turning around.";
 var messageNorthStop = "You can not go north this way! Try a different direction.";
 var messageTemple = "You have reached the ancient ruins of the Temple of Aboubaker!";
 var messageEastStop = "You can not head east here! Try a different direction.";
@@ -31,8 +30,7 @@ function North () {
 	} else if (currentLocation === "cliff") {
 		cliffBridge ();
 	} else if (currentLocation === "archway") {
-		currentLocation = "jungleDeadEnd";
-		showMessage(messageJungleDeadEnd);
+		jungleDeadEnd ();
 	} else if (currentLocation === "jungleClearing"){
 		archway ();	
 	} else {
@@ -141,6 +139,12 @@ function jungleClearing () {
 			scoreJungleClearing = false;
 			showScore(score);
 		}
+}
+
+function jungleDeadEnd () {
+	currentLocation = "jungleDeadEnd";
+	var message = "You have reached a dead end as you are stopped by a waterfall. Try turning around.";
+	showMessage(message);	
 }
 
 
