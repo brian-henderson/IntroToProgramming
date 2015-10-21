@@ -72,10 +72,6 @@ function West () {
 	}
 }
 
-function Reload () {
-	location.reload();
-}
-
 function beach () {
 	currentLocation = "beach";
 	var message = "You are back on the beach.";
@@ -155,8 +151,15 @@ function temple () {
 		alert('YOU WIN!! YOU HAVE REACHED THE TEMPLE OF ABOUBAKER! THATS ALL FOR NOW! I WONDER WHAT THE FUTURE HOLDS. TILL NEXT TIME! THANKS FOR PLAYING!!!');	
 }
 
+function Reload () {
+	location.reload();
+}
 
-
+function directionInput (direction) {
+	if (direction === "N") {
+		North ();	
+	}
+}
 
 
 
