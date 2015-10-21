@@ -1,6 +1,5 @@
 var currentLocation = "beach";
 
-var messageBeach = "You are back on the beach."
 var messageNorthStop = "You can not go north this way! Try a different direction.";
 var messageEastStop = "You can not head east here! Try a different direction.";
 var messageSouthStop = "You can't go south here. Try a different direction.";
@@ -51,8 +50,7 @@ function East () {
 
 function South () {
 	if (currentLocation === "jungle") {
-		currentLocation = "beach";
-		showMessage(messageBeach);	
+		beach ();	
 	} else if (currentLocation === "cliffBridge") {
 		cliff ();
 	} else if (currentLocation === "jungleDeadEnd") {
@@ -76,6 +74,12 @@ function West () {
 
 function Reload () {
 	location.reload();
+}
+
+function beach () {
+	currentLocation = "beach";
+	var message = "You are back on the beach.";
+	showMessage(message);		
 }
 
 function jungle () {
@@ -150,6 +154,7 @@ function temple () {
 		}
 		alert('YOU WIN!! YOU HAVE REACHED THE TEMPLE OF ABOUBAKER! THATS ALL FOR NOW! I WONDER WHAT THE FUTURE HOLDS. TILL NEXT TIME! THANKS FOR PLAYING!!!');	
 }
+
 
 
 
