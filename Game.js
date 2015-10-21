@@ -55,6 +55,7 @@ function North () {
 		showMessage(messageNorthStop);
 	}
 }	
+
 function East () {
 	if (currentLocation === "jungle") {
 		currentLocation = "cliff";
@@ -85,6 +86,7 @@ function East () {
 		showMessage(messageEastStop);
 	}		
 }
+
 function South () {
 	if (currentLocation === "jungle") {
 		currentLocation = "beach";
