@@ -5,7 +5,6 @@ var messageJungleDeadEnd = "You have reached a dead end as you are stopped by a 
 var messageNorthStop = "You can not go north this way! Try a different direction.";
 var messageTemple = "You have reached the ancient ruins of the Temple of Aboubaker!";
 var messageEastStop = "You can not head east here! Try a different direction.";
-var messageClearing = "You have reached a clearing in the jungle. You begin to loose hope after hours of searc...Wait. Whats that off to the east?";
 var messageSouthStop = "You can't go south here. Try a different direction.";
 var messageWestStop = "Hrmm. Looks like going west is not an option. Try another direction.";
 
@@ -34,6 +33,8 @@ function North () {
 	} else if (currentLocation === "archway") {
 		currentLocation = "jungleDeadEnd";
 		showMessage(messageJungleDeadEnd);
+	} else if (currentLocation === "jungleClearing"){
+		archway ();	
 	} else {
 		showMessage(messageNorthStop);
 	}
@@ -67,13 +68,7 @@ function South () {
 	} else if (currentLocation === "jungleDeadEnd") {
 		archway ();
 	} else if (currentLocation === "archway") {
-		currentLocation = "jungleClearing";
-		showMessage(messageClearing);
-		if (scoreJungleClearing === true) {
-			score += 5;
-			scoreJungleClearing = false;
-			showScore(score);
-		}
+		jungleClearing ();
 	} else {
 		showMessage(messageSouthStop);
 	}
@@ -133,6 +128,17 @@ function archway () {
 		if (scoreArchway === true) {
 			score += 5;
 			scoreArchway = false;
+			showScore(score);
+		}
+}
+
+function jungleClearing () {
+	currentLocation = "jungleClearing";
+	var message = "You have reached a clearing in the jungle. You begin to loose hope after hours of searc...Wait. Whats that off to the east?";
+	showMessage(message);
+		if (scoreJungleClearing === true) {
+			score += 5;
+			scoreJungleClearing = false;
 			showScore(score);
 		}
 }
