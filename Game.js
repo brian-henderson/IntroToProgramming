@@ -33,13 +33,7 @@ function showScore(descrip) {
 
 function North () {
 	if (currentLocation === "beach") {
-		currentLocation = "jungle";
-		showMessage(messageJungle);
-		if (scoreJungle === true) {
-			score += 5;
-			scoreJungle = false;
-			showScore(score);
-		}
+		jungle ();
 	} else if (currentLocation === "cliff") {
 		currentLocation = "cliffBridge";
 		showMessage(messageCliffBridge);
@@ -112,8 +106,7 @@ function South () {
 
 function West () {
 	if (currentLocation === "cliff") {
-		currentLocation = "jungle";
-		showMessage(messageJungle);
+		jungle ();
 	} else if (currentLocation === "archway") {
 		currentLocation = "cliffBridge";
 		showMessage(messageCliffBridge);
@@ -125,3 +118,21 @@ function West () {
 function Reload () {
 	location.reload();
 }
+
+function jungle () {
+	currentLocation = "jungle";
+	var message = "You have reached the jungle. After traveling for a few miles, maybe change directions.";
+	showMessage(message);
+		if (scoreJungle === true) {
+			score += 5;
+			scoreJungle = false;
+			showScore(score);
+		}	
+}
+
+
+
+
+
+
+
