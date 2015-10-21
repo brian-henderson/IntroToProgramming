@@ -2,7 +2,6 @@ var currentLocation = "beach";
 
 var messageBeach = "You are back on the beach."
 var messageNorthStop = "You can not go north this way! Try a different direction.";
-var messageTemple = "You have reached the ancient ruins of the Temple of Aboubaker!";
 var messageEastStop = "You can not head east here! Try a different direction.";
 var messageSouthStop = "You can't go south here. Try a different direction.";
 var messageWestStop = "Hrmm. Looks like going west is not an option. Try another direction.";
@@ -44,14 +43,7 @@ function East () {
 	} else if (currentLocation ==="cliffBridge") {
 		archway ();	
 	} else if (currentLocation === "jungleClearing") {
-		currentLocation = "temple";
-		showMessage(messageTemple);
-		if (scoreTemple === true) {
-			score += 5;
-			scoreTemple = false;
-			showScore(score);
-		}
-		alert('YOU WIN!! YOU HAVE REACHED THE TEMPLE OF ABOUBAKER! THATS ALL FOR NOW! I WONDER WHAT THE FUTURE HOLDS. TILL NEXT TIME! THANKS FOR PLAYING!!!');
+		temple ();
 	} else {
 		showMessage(messageEastStop);
 	}		
@@ -147,6 +139,17 @@ function jungleDeadEnd () {
 	showMessage(message);	
 }
 
+function temple () {
+	currentLocation = "temple";
+	var message = "You have reached the ancient ruins of the Temple of Aboubaker!";
+	showMessage(message);
+		if (scoreTemple === true) {
+			score += 5;
+			scoreTemple = false;
+			showScore(score);
+		}
+		alert('YOU WIN!! YOU HAVE REACHED THE TEMPLE OF ABOUBAKER! THATS ALL FOR NOW! I WONDER WHAT THE FUTURE HOLDS. TILL NEXT TIME! THANKS FOR PLAYING!!!');	
+}
 
 
 
