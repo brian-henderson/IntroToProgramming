@@ -5,11 +5,6 @@ var disableEast = false;
 var disableSouth = false;
 var disableWest = false;
 
-var messageNorthStop = "You can not go north this way! Try a different direction.";
-var messageEastStop = "You can not head east here! Try a different direction.";
-var messageSouthStop = "You can't go south here. Try a different direction.";
-var messageWestStop = "Hrmm. Looks like going west is not an option. Try another direction.";
-
 var score = 0;
 var scoreJungle = true;
 var scoreCliff = true;
@@ -28,6 +23,8 @@ function showScore(descrip) {
 }
 
 function North () {
+	var message = "You can not go north this way! Try a different direction.";
+
 	if (currentLocation === "beach") {
 		jungle ();
 		buttonDisable ();
@@ -41,11 +38,13 @@ function North () {
 		archway ();
 		buttonDisable ();	
 	} else {
-		showMessage(messageNorthStop);
+		showMessage(message);
 	}
 }	
 
 function East () {
+	var message = "You can not head east here! Try a different direction.";
+
 	if (currentLocation === "jungle") {
 		cliff ();
 		buttonDisable ();
@@ -56,11 +55,13 @@ function East () {
 		temple ();
 		buttonDisable ();
 	} else {
-		showMessage(messageEastStop);
+		showMessage(message);
 	}		
 }
 
 function South () {
+	var message = "You can't go south here. Try a different direction.";
+
 	if (currentLocation === "jungle") {
 		beach ();
 		buttonDisable ();	
@@ -74,11 +75,13 @@ function South () {
 		jungleClearing ();
 		buttonDisable ();
 	} else {
-		showMessage(messageSouthStop);
+		showMessage(message);
 	}
 }
 
 function West () {
+	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
+
 	if (currentLocation === "cliff") {
 		jungle ();
 		buttonDisable ();
@@ -86,7 +89,7 @@ function West () {
 		cliffBridge ();
 		buttonDisable ();
 	} else {
-		showMessage(messageWestStop);
+		showMessage(message);
 	}
 }
 
@@ -193,7 +196,3 @@ function buttonDisable () {
 	document.getElementById('southBtn').disabled=false;
 	document.getElementById('westBtn').disabled=false;
 }
-
-
-
-
