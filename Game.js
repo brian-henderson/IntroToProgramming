@@ -13,6 +13,7 @@ var scoreArchway = true;
 var scoreJungleDeadEnd = true;
 var scoreJungleClearing = true;
 var scoreTemple = true;
+var scoreTemplePyramid = true;
 
 function showMessage(descrip){
 	document.getElementById("message").innerHTML = descrip;
@@ -37,6 +38,9 @@ function North () {
 	} else if (currentLocation === "jungleClearing"){
 		archway ();
 		buttonDisable ();	
+	} else if (currentLocation === "temple") {
+		templePyramid ();
+		buttonDisable();
 	} else {
 		showMessage(message);
 	}
@@ -162,14 +166,24 @@ function jungleDeadEnd () {
 
 function temple () {
 	currentLocation = "temple";
-	var message = "You have reached the ancient ruins of the Temple of Aboubaker!";
+	var message = "You have reached the ancient ruins of the Temple of Aboubaker! You are in a courtyard and notice three structures to the north, east and west. Investigate!";
 	showMessage(message);
 		if (scoreTemple === true) {
 			score += 5;
 			scoreTemple = false;
 			showScore(score);
+		}	
+}
+
+function templePyramid () {
+	currentLocation = "templePyramid";
+	var message = "temple pyramid TEMP";
+	showMessage(message);
+		if (scoreTemplePyramid === true) {
+			score += 5;
+			scoreTemplePyramid = false;
+			showScore(score);
 		}
-		alert('YOU WIN!! YOU HAVE REACHED THE TEMPLE OF ABOUBAKER! THATS ALL FOR NOW! I WONDER WHAT THE FUTURE HOLDS. TILL NEXT TIME! THANKS FOR PLAYING!!!');	
 }
 
 function Reload () {
