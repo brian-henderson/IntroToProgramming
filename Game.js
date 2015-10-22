@@ -1,5 +1,10 @@
 var currentLocation = "beach";
 
+var disableNorth = false;
+var disableEast = false;
+var disableSouth = false;
+var disableWest = false;
+
 var messageNorthStop = "You can not go north this way! Try a different direction.";
 var messageEastStop = "You can not head east here! Try a different direction.";
 var messageSouthStop = "You can't go south here. Try a different direction.";
@@ -25,12 +30,16 @@ function showScore(descrip) {
 function North () {
 	if (currentLocation === "beach") {
 		jungle ();
+		buttonDisable ();
 	} else if (currentLocation === "cliff") {
 		cliffBridge ();
+		buttonDisable ();
 	} else if (currentLocation === "archway") {
 		jungleDeadEnd ();
+		buttonDisable ();
 	} else if (currentLocation === "jungleClearing"){
-		archway ();	
+		archway ();
+		buttonDisable ();	
 	} else {
 		showMessage(messageNorthStop);
 	}
@@ -39,10 +48,13 @@ function North () {
 function East () {
 	if (currentLocation === "jungle") {
 		cliff ();
+		buttonDisable ();
 	} else if (currentLocation ==="cliffBridge") {
-		archway ();	
+		archway ();
+		buttonDisable ();
 	} else if (currentLocation === "jungleClearing") {
 		temple ();
+		buttonDisable ();
 	} else {
 		showMessage(messageEastStop);
 	}		
@@ -50,13 +62,17 @@ function East () {
 
 function South () {
 	if (currentLocation === "jungle") {
-		beach ();	
+		beach ();
+		buttonDisable ();	
 	} else if (currentLocation === "cliffBridge") {
 		cliff ();
+		buttonDisable ();
 	} else if (currentLocation === "jungleDeadEnd") {
 		archway ();
+		buttonDisable ();
 	} else if (currentLocation === "archway") {
 		jungleClearing ();
+		buttonDisable ();
 	} else {
 		showMessage(messageSouthStop);
 	}
@@ -65,8 +81,10 @@ function South () {
 function West () {
 	if (currentLocation === "cliff") {
 		jungle ();
+		buttonDisable ();
 	} else if (currentLocation === "archway") {
 		cliffBridge ();
+		buttonDisable ();
 	} else {
 		showMessage(messageWestStop);
 	}
@@ -167,6 +185,13 @@ function directionInput (direction) {
 	} else {
 		alert("That's not a correct input! Please enter on of the following: N,n,E,e,S,s,W,w");
 	}
+}
+
+function buttonDisable () {
+	document.getElementById('northBtn').disabled=false;
+	document.getElementById('eastBtn').disabled=false;
+	document.getElementById('southBtn').disabled=false;
+	document.getElementById('westBtn').disabled=false;
 }
 
 
