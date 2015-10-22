@@ -37,10 +37,7 @@ function North () {
 		buttonDisable ();
 	} else if (currentLocation === "jungleClearing"){
 		archway ();
-		buttonDisable ();	
-	} else if (currentLocation === "temple") {
-		templePyramid ();
-		buttonDisable();
+		buttonDisable ();
 	} else {
 		showMessage(message);
 	}
@@ -173,17 +170,6 @@ function temple () {
 			scoreTemple = false;
 			showScore(score);
 		}	
-}
-
-function templePyramid () {
-	currentLocation = "templePyramid";
-	var message = "temple pyramid TEMP";
-	showMessage(message);
-		if (scoreTemplePyramid === true) {
-			score += 5;
-			scoreTemplePyramid = false;
-			showScore(score);
-		}
 }
 
 function Reload () {
