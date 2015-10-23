@@ -14,6 +14,8 @@ var scoreJungleDeadEnd = true;
 var scoreJungleClearing = true;
 var scoreTemple = true;
 var scoreTemplePyramid = true;
+var scoreTemplePyramidThrone = true;
+
 
 function showMessage(descrip){
 	document.getElementById("message").innerHTML = descrip;
@@ -38,6 +40,12 @@ function North () {
 	} else if (currentLocation === "jungleClearing"){
 		archway ();
 		buttonDisable ();
+	} else if (currentLocation === "temple") {
+		templePyramid ();
+		buttonDisable ();
+	} else if (currentLocation === "templePyramid") {
+		templePyramidThrone ();
+		buttonDisable ();					
 	} else {
 		showMessage(message);
 		document.getElementById('northBtn').disabled=true;
@@ -56,6 +64,12 @@ function East () {
 	} else if (currentLocation === "jungleClearing") {
 		temple ();
 		buttonDisable ();
+	} else if (currentLocation === "temple") {
+		templeTomb ();
+		buttonDisable ();
+	} else if (currentLocation === "templeStatue") {
+		temple ();
+		buttonDisable ();						
 	} else {
 		showMessage(message);
 		document.getElementById('eastBtn').disabled=true;
@@ -77,6 +91,12 @@ function South () {
 	} else if (currentLocation === "archway") {
 		jungleClearing ();
 		buttonDisable ();
+	} else if (currentLocation === "templePyramid") {
+		temple ();
+		buttonDisable ();
+	} else if (currentLocation === "templePyramidThrone") {
+		templePyramid ();
+		buttonDisable ();					
 	} else {
 		showMessage(message);
 		document.getElementById('southBtn').disabled=true;
@@ -92,6 +112,12 @@ function West () {
 	} else if (currentLocation === "archway") {
 		cliffBridge ();
 		buttonDisable ();
+	} else if (currentLocation === "temple") {
+		templeStatue ();
+		buttonDisable ();
+	} else if (currentLocation === "templeTomb") {
+		temple ();
+		buttonDisable ();						
 	} else {
 		showMessage(message);
 		document.getElementById('westBtn').disabled=true;
@@ -174,6 +200,41 @@ function temple () {
 			scoreTemple = false;
 			showScore(score);
 		}	
+}
+
+function templePyramid () {
+	currentLocation = "templePyramid";
+	var message = "You have entered the pyramid structure, but it looks like the only way to go is north because the other rooms seem to be blocked off.";
+	showMessage(message);
+		if (scoreTemplePyramid === true) {
+			score += 5;
+			scoreTemplePyramid = false;
+			showScore(score);
+		}
+}
+
+function templePyramidThrone () {
+	currentLocation = "templePyramidThrone";
+	var message = "You have entered the throne room and notice an ancient text on the the wall. Unfortunately you are unable to interprete it as of now, but it may contain the secret to unlocking the secret catacombs!";
+	showMessage(message);
+		if (scoreTemplePyramidThrone === true) {
+			score += 5;
+			scoreTemplePyramidThrone = false;
+			showScore(score);
+		}
+	alert("YOU WIN!!!!! THANKS FOR PLAYING, WHO KNOWS WHAT THE FUTURE WILL HOLD!");
+}
+
+function templeStatue () {
+	currentLocation = "templeStatue";
+	var message ="There seems to be nothing important here right now.";
+	showMessage(message);
+}
+
+function templeTomb () {
+	currentLocation = "templeTomb"
+	var message = "There seems to be nothing important here right now.";
+	showMessage(message);
 }
 
 function Reload () {
