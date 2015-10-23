@@ -40,6 +40,7 @@ function North () {
 		buttonDisable ();
 	} else {
 		showMessage(message);
+		document.getElementById('northBtn').disabled=true;
 	}
 }	
 
@@ -57,6 +58,7 @@ function East () {
 		buttonDisable ();
 	} else {
 		showMessage(message);
+		document.getElementById('eastBtn').disabled=true;
 	}		
 }
 
@@ -77,6 +79,7 @@ function South () {
 		buttonDisable ();
 	} else {
 		showMessage(message);
+		document.getElementById('southBtn').disabled=true;
 	}
 }
 
@@ -91,6 +94,7 @@ function West () {
 		buttonDisable ();
 	} else {
 		showMessage(message);
+		document.getElementById('westBtn').disabled=true;
 	}
 }
 
