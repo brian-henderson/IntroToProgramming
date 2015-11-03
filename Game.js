@@ -17,7 +17,7 @@ var scoreTemplePyramid = true;
 var scoreTemplePyramidThrone = true;
 
 
-function showMessage(descrip){
+function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
 }
 
@@ -25,112 +25,112 @@ function showScore(descrip) {
 	document.getElementById("score").innerHTML = descrip;
 }
 
-function North () {
+function North() {
 	var message = "You can not go north this way! Try a different direction.";
 
 	if (currentLocation === "beach") {
-		jungle ();
+		jungle();
 		buttonDisable ();
 	} else if (currentLocation === "cliff") {
-		cliffBridge ();
-		buttonDisable ();
+		cliffBridge();
+		buttonDisable();
 	} else if (currentLocation === "archway") {
-		jungleDeadEnd ();
-		buttonDisable ();
+		jungleDeadEnd();
+		buttonDisable();
 	} else if (currentLocation === "jungleClearing"){
-		archway ();
-		buttonDisable ();
+		archway();
+		buttonDisable();
 	} else if (currentLocation === "temple") {
-		templePyramid ();
-		buttonDisable ();
+		templePyramid();
+		buttonDisable();
 	} else if (currentLocation === "templePyramid") {
-		templePyramidThrone ();
-		buttonDisable ();					
+		templePyramidThrone();
+		buttonDisable();					
 	} else {
 		showMessage(message);
 		document.getElementById('northBtn').disabled=true;
 	}
 }	
 
-function East () {
+function East() {
 	var message = "You can not head east here! Try a different direction.";
 
 	if (currentLocation === "jungle") {
-		cliff ();
-		buttonDisable ();
+		cliff();
+		buttonDisable();
 	} else if (currentLocation ==="cliffBridge") {
-		archway ();
-		buttonDisable ();
+		archway();
+		buttonDisable();
 	} else if (currentLocation === "jungleClearing") {
-		temple ();
-		buttonDisable ();
+		temple();
+		buttonDisable();
 	} else if (currentLocation === "temple") {
-		templeTomb ();
-		buttonDisable ();
+		templeTomb();
+		buttonDisable();
 	} else if (currentLocation === "templeStatue") {
-		temple ();
-		buttonDisable ();						
+		temple();
+		buttonDisable();						
 	} else {
 		showMessage(message);
 		document.getElementById('eastBtn').disabled=true;
 	}		
 }
 
-function South () {
+function South() {
 	var message = "You can't go south here. Try a different direction.";
 
 	if (currentLocation === "jungle") {
-		beach ();
-		buttonDisable ();	
+		beach();
+		buttonDisable();	
 	} else if (currentLocation === "cliffBridge") {
-		cliff ();
-		buttonDisable ();
+		cliff();
+		buttonDisable();
 	} else if (currentLocation === "jungleDeadEnd") {
-		archway ();
-		buttonDisable ();
+		archway();
+		buttonDisable();
 	} else if (currentLocation === "archway") {
-		jungleClearing ();
-		buttonDisable ();
+		jungleClearing();
+		buttonDisable();
 	} else if (currentLocation === "templePyramid") {
-		temple ();
+		temple();
 		buttonDisable ();
 	} else if (currentLocation === "templePyramidThrone") {
-		templePyramid ();
-		buttonDisable ();					
+		templePyramid();
+		buttonDisable();					
 	} else {
 		showMessage(message);
 		document.getElementById('southBtn').disabled=true;
 	}
 }
 
-function West () {
+function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
 
 	if (currentLocation === "cliff") {
-		jungle ();
-		buttonDisable ();
+		jungle();
+		buttonDisable();
 	} else if (currentLocation === "archway") {
-		cliffBridge ();
-		buttonDisable ();
+		cliffBridge();
+		buttonDisable();
 	} else if (currentLocation === "temple") {
-		templeStatue ();
-		buttonDisable ();
+		templeStatue();
+		buttonDisable();
 	} else if (currentLocation === "templeTomb") {
-		temple ();
-		buttonDisable ();						
+		temple();
+		buttonDisable();						
 	} else {
 		showMessage(message);
 		document.getElementById('westBtn').disabled=true;
 	}
 }
 
-function beach () {
+function beach() {
 	currentLocation = "beach";
 	var message = "You are back on the beach.";
 	showMessage(message);		
 }
 
-function jungle () {
+function jungle() {
 	currentLocation = "jungle";
 	var message = "You have reached the jungle. After traveling for a few miles, maybe change directions.";
 	showMessage(message);
@@ -141,7 +141,7 @@ function jungle () {
 		}	
 }
 
-function cliff () {
+function cliff() {
 	currentLocation = "cliff";
 	var message = "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north."
 	showMessage(message);
@@ -152,7 +152,7 @@ function cliff () {
 	}	
 }
 
-function cliffBridge () {
+function cliffBridge() {
 	currentLocation = "cliffBridge";
 	var message = "Ah you were right! You have reached an old rope bridge, but it looks old and dangerous. Looks like it is the only way cross the valley east though and might be worth taking a chance.";
 	showMessage(message);
@@ -163,7 +163,7 @@ function cliffBridge () {
 		}
 }
 
-function archway () {
+function archway() {
 	currentLocation = "archway";
 	var message = "Yay! You have safely crossed the bridge! There is a sign that points North and South, but you are unable to interprete the ancient symbols.";
 	showMessage(message);
@@ -174,7 +174,7 @@ function archway () {
 		}
 }
 
-function jungleClearing () {
+function jungleClearing() {
 	currentLocation = "jungleClearing";
 	var message = "You have reached a clearing in the jungle. You begin to loose hope after hours of searc...Wait. Whats that off to the east?";
 	showMessage(message);
@@ -185,13 +185,13 @@ function jungleClearing () {
 		}
 }
 
-function jungleDeadEnd () {
+function jungleDeadEnd() {
 	currentLocation = "jungleDeadEnd";
 	var message = "You have reached a dead end as you are stopped by a waterfall. Try turning around.";
 	showMessage(message);	
 }
 
-function temple () {
+function temple() {
 	currentLocation = "temple";
 	var message = "You have reached the ancient ruins of the Temple of Aboubaker! You are in a courtyard and notice three structures to the north, east and west. Investigate!";
 	showMessage(message);
@@ -202,7 +202,7 @@ function temple () {
 		}	
 }
 
-function templePyramid () {
+function templePyramid() {
 	currentLocation = "templePyramid";
 	var message = "You have entered the pyramid structure, but it looks like the only way to go is north because the other rooms seem to be blocked off.";
 	showMessage(message);
@@ -213,7 +213,7 @@ function templePyramid () {
 		}
 }
 
-function templePyramidThrone () {
+function templePyramidThrone() {
 	currentLocation = "templePyramidThrone";
 	var message = "You have entered the throne room and notice an ancient text on the the wall. Unfortunately you are unable to interprete it as of now, but it may contain the secret to unlocking the secret catacombs!";
 	showMessage(message);
@@ -225,37 +225,37 @@ function templePyramidThrone () {
 	alert("YOU WIN!!!!! THANKS FOR PLAYING, WHO KNOWS WHAT THE FUTURE WILL HOLD!");
 }
 
-function templeStatue () {
+function templeStatue() {
 	currentLocation = "templeStatue";
 	var message ="There seems to be nothing important here right now.";
 	showMessage(message);
 }
 
-function templeTomb () {
+function templeTomb() {
 	currentLocation = "templeTomb"
 	var message = "There seems to be nothing important here right now.";
 	showMessage(message);
 }
 
-function Reload () {
+function Reload() {
 	location.reload();
 }
 
-function directionInput (direction) {
+function directionInput(direction) {
 	if (direction === "N" || direction === "n") {
-		North ();	
+		North();	
 	} else if (direction === "S" || direction ==="s"){
-		South ();
+		South();
 	} else if (direction === "E" || direction ==="e"){
-		East ();
+		East();
 	} else if (direction === "W" || direction ==="w") {
-		West ();
+		West();
 	} else {
 		alert("That's not a correct input! Please enter on of the following: N,n,E,e,S,s,W,w");
 	}
 }
 
-function buttonDisable () {
+function buttonDisable() {
 	document.getElementById('northBtn').disabled=false;
 	document.getElementById('eastBtn').disabled=false;
 	document.getElementById('southBtn').disabled=false;
