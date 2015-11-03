@@ -249,6 +249,8 @@ function Reload() {
 }
 
 function directionInput(direction) {
+	var message = "That's not a correct input! Please enter on of the following: N,n,E,e,S,s,W,w";
+	
 	if (direction === "N" || direction === "n") {
 		North();	
 	} else if (direction === "S" || direction ==="s"){
@@ -258,7 +260,7 @@ function directionInput(direction) {
 	} else if (direction === "W" || direction ==="w") {
 		West();
 	} else {
-		alert("That's not a correct input! Please enter on of the following: N,n,E,e,S,s,W,w");
+		showMessage(message);
 	}
 }
 
