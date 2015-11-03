@@ -1,3 +1,10 @@
+/* Brian Henderson
+   November 23, 2015
+   Project 3
+   CMPT 120L 
+*/
+
+
 var currentLocation = "beach";
 
 var disableNorth = false;
