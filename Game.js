@@ -57,21 +57,25 @@ function North () {
 
 function East() {
 	var message = "You can not head east here! Try a different direction.";
-	buttonEnable();
-
-	if (currentLocation === "jungle") {
-		cliff();
-	} else if (currentLocation ==="cliffBridge") {
-		archway();
-	} else if (currentLocation === "jungleClearing") {
-		templeEntrance();
-	} else if (currentLocation === "templeCourtyard") {
-		templeStatue();
-	} else if (currentLocation === "templeTomb") {
-		templeCourtyard();					
-	} else {
-		showMessage(message);
-	}		
+	switch(currentLocation) {
+		case "jungle":
+			cliff();
+			break;
+		case "cliffBridge":
+			archway();
+			break;
+		case "jungleClearing":
+			temple();
+			break;
+		case "temple":
+			templeTomb();
+			break;
+		case "templeStatue":
+			temple();	
+			break;
+		default:
+			showMessage(message);				
+	}
 }
 
 function South() {
