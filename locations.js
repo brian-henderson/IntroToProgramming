@@ -1,7 +1,18 @@
 function beach() {
 	currentLocation = "beach";
-	var message = "You are back on the beach.";
-	showMessage(message);		
+	var message = "You are back on the beach.";	
+		if (init === true) {
+			message = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
+			 		  "have finally found the island where the lost temple and treasure of the Great King " + 
+			  		  "Aboubaker is. There is much to explore on this island, you can try walking the coast but " +
+			  		  "it might be better to check out the jungle and explore the mysterys that lie ahead! ";
+			init = false;  		  
+			showMessage(message);
+		}
+	showMessage(message);
+	disableEast();
+	disableSouth();
+	disableWest();
 }
 
 function jungle() {

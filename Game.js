@@ -5,6 +5,7 @@
 */
 
 var currentLocation = "beach";
+var init = true;
 
 var score = 0;
 var scoreJungle = true;
@@ -126,3 +127,20 @@ function buttonEnable() {
 	document.getElementById("southBtn").disabled=false;
 	document.getElementById("westBtn").disabled=false;
 }
+
+function disableNorth() {
+	document.getElementById("northBtn").disabled=true;
+}
+
+function disableEast () {
+	document.getElementById("eastBtn").disabled=true;
+}
+
+function disableWest() {
+	document.getElementById("westBtn").disabled=true;
+}
+
+function disableSouth() {
+	document.getElementById("southBtn").disabled=true;
+}
+
