@@ -28,28 +28,32 @@ function showScore(descrip) {
 	document.getElementById("score").innerHTML = descrip;
 }
 
-function North() {
+function North () {
 	var message = "You can not go north this way! Try a different direction.";
 	buttonEnable();
-
-	if (currentLocation === "beach") {
-		jungle();
-	} else if (currentLocation === "cliff") {
-		cliffBridge();
-	} else if (currentLocation === "archway") {
-		jungleDeadEnd();
-	} else if (currentLocation === "jungleClearing"){
-		archway();
-	} else if (currentLocation === "templeEntrance"){
-		templeCourtyard();
-	} else if (currentLocation === "templeCourtyard") {
-		templePyramid();
-	} else if (currentLocation === "templePyramid") {
-		templePyramidThrone();					
-	} else {
-		showMessage(message);
+	switch (currentLocation) {
+		case "beach":
+			jungle ();
+			break;
+		case "cliff":
+			cliffBridge ();
+			break;
+		case "archway":
+			jungleDeadEnd ();
+			break;
+		case "jungleClearing":
+			archway ();
+			break;
+		case "temple":
+			templePyramid ();
+			break;
+		case "templePyramid":
+			templePyramidThrone ();
+			break;
+		default:
+			showMessage(message);
 	}
-}
+}	
 
 function East() {
 	var message = "You can not head east here! Try a different direction.";
