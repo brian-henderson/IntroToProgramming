@@ -4,13 +4,7 @@
    CMPT 120L 
 */
 
-
 var currentLocation = "beach";
-
-var disableNorth = false;
-var disableEast = false;
-var disableSouth = false;
-var disableWest = false;
 
 var score = 0;
 var scoreJungle = true;
@@ -32,81 +26,23 @@ function showScore(descrip) {
 	document.getElementById("score").innerHTML = descrip;
 }
 
-function North() {
-	var message = "You can not go north this way! Try a different direction.";
-
-	if (currentLocation === "beach") {
-		jungle();
-		buttonDisable ();
-	} else if (currentLocation === "cliff") {
-		cliffBridge();
-		buttonDisable();
-	} else if (currentLocation === "archway") {
-		jungleDeadEnd();
-		buttonDisable();
-	} else if (currentLocation === "jungleClearing"){
-		archway();
-		buttonDisable();
-	} else if (currentLocation === "temple") {
-		templePyramid();
-		buttonDisable();
-	} else if (currentLocation === "templePyramid") {
-		templePyramidThrone();
-		buttonDisable();					
-	} else {
-		showMessage(message);
-		document.getElementById('northBtn').disabled=true;
-	}
-}	
-
-function East() {
-	var message = "You can not head east here! Try a different direction.";
-
-	if (currentLocation === "jungle") {
-		cliff();
-		buttonDisable();
-	} else if (currentLocation ==="cliffBridge") {
-		archway();
-		buttonDisable();
-	} else if (currentLocation === "jungleClearing") {
-		temple();
-		buttonDisable();
-	} else if (currentLocation === "temple") {
-		templeTomb();
-		buttonDisable();
-	} else if (currentLocation === "templeStatue") {
-		temple();
-		buttonDisable();						
-	} else {
-		showMessage(message);
-		document.getElementById('eastBtn').disabled=true;
-	}		
-}
-
 function South() {
 	var message = "You can't go south here. Try a different direction.";
 
 	if (currentLocation === "jungle") {
 		beach();
-		buttonDisable();	
 	} else if (currentLocation === "cliffBridge") {
 		cliff();
-		buttonDisable();
 	} else if (currentLocation === "jungleDeadEnd") {
 		archway();
-		buttonDisable();
 	} else if (currentLocation === "archway") {
 		jungleClearing();
-		buttonDisable();
 	} else if (currentLocation === "templePyramid") {
 		temple();
-		buttonDisable ();
 	} else if (currentLocation === "templePyramidThrone") {
-		templePyramid();
-		buttonDisable();					
+		templePyramid();					
 	} else {
 		showMessage(message);
-		document.getElementById('southBtn').disabled=true;
 	}
 }
 
@@ -115,19 +51,14 @@ function West() {
 
 	if (currentLocation === "cliff") {
 		jungle();
-		buttonDisable();
 	} else if (currentLocation === "archway") {
 		cliffBridge();
-		buttonDisable();
 	} else if (currentLocation === "temple") {
 		templeStatue();
-		buttonDisable();
 	} else if (currentLocation === "templeTomb") {
-		temple();
-		buttonDisable();						
+		temple();						
 	} else {
 		showMessage(message);
-		document.getElementById('westBtn').disabled=true;
 	}
 }
 
@@ -262,11 +193,4 @@ function directionInput(direction) {
 	} else {
 		showMessage(message);
 	}
-}
-
-function buttonDisable() {
-	document.getElementById('northBtn').disabled=false;
-	document.getElementById('eastBtn').disabled=false;
-	document.getElementById('southBtn').disabled=false;
-	document.getElementById('westBtn').disabled=false;
 }

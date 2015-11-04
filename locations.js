@@ -17,3 +17,21 @@ function North() {
 		showMessage(message);
 	}
 }
+
+function East() {
+	var message = "You can not head east here! Try a different direction.";
+
+	if (currentLocation === "jungle") {
+		cliff();
+	} else if (currentLocation ==="cliffBridge") {
+		archway();
+	} else if (currentLocation === "jungleClearing") {
+		temple();
+	} else if (currentLocation === "temple") {
+		templeTomb();
+	} else if (currentLocation === "templeStatue") {
+		temple();					
+	} else {
+		showMessage(message);
+	}		
+}
