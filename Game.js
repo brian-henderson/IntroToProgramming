@@ -29,6 +29,7 @@ function showScore(descrip) {
 
 function North() {
 	var message = "You can not go north this way! Try a different direction.";
+	buttonEnable();
 
 	if (currentLocation === "beach") {
 		jungle();
@@ -49,6 +50,7 @@ function North() {
 
 function East() {
 	var message = "You can not head east here! Try a different direction.";
+	buttonEnable();
 
 	if (currentLocation === "jungle") {
 		cliff();
@@ -67,6 +69,7 @@ function East() {
 
 function South() {
 	var message = "You can't go south here. Try a different direction.";
+	buttonEnable();
 
 	if (currentLocation === "jungle") {
 		beach();
@@ -87,6 +90,7 @@ function South() {
 
 function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
+	buttonEnable();
 
 	if (currentLocation === "cliff") {
 		jungle();
