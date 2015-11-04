@@ -119,3 +119,10 @@ function directionInput(direction) {
 		showMessage(message);
 	}
 }
+
+function buttonEnable() {
+	document.getElementById("northBtn").disabled=false;
+	document.getElementById("eastBtn").disabled=false;
+	document.getElementById("southBtn").disabled=false;
+	document.getElementById("westBtn").disabled=false;
+}
