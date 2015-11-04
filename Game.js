@@ -14,9 +14,10 @@ var scoreCliffBridge = true;
 var scoreArchway = true;
 var scoreJungleDeadEnd = true;
 var scoreJungleClearing = true;
-var scoreTemple = true;
+var scoreTempleEntrance = true;
 var scoreTemplePyramid = true;
 var scoreTemplePyramidThrone = true;
+var scoreTempleCourtyard = true;
 
 
 function showMessage(descrip) {
@@ -39,7 +40,9 @@ function North() {
 		jungleDeadEnd();
 	} else if (currentLocation === "jungleClearing"){
 		archway();
-	} else if (currentLocation === "temple") {
+	} else if (currentLocation === "templeEntrance"){
+		templeCourtyard();
+	} else if (currentLocation === "templeCourtyard") {
 		templePyramid();
 	} else if (currentLocation === "templePyramid") {
 		templePyramidThrone();					
@@ -57,11 +60,11 @@ function East() {
 	} else if (currentLocation ==="cliffBridge") {
 		archway();
 	} else if (currentLocation === "jungleClearing") {
-		temple();
-	} else if (currentLocation === "temple") {
+		templeEntrance();
+	} else if (currentLocation === "templeCourtyard") {
 		templeTomb();
 	} else if (currentLocation === "templeStatue") {
-		temple();					
+		templeCourtyard();					
 	} else {
 		showMessage(message);
 	}		
@@ -79,8 +82,10 @@ function South() {
 		archway();
 	} else if (currentLocation === "archway") {
 		jungleClearing();
+	} else if (currentLocation === "templeCourtyard") {
+		templeEntrance();	
 	} else if (currentLocation === "templePyramid") {
-		temple();
+		templeCourtyard();
 	} else if (currentLocation === "templePyramidThrone") {
 		templePyramid();					
 	} else {
@@ -96,10 +101,12 @@ function West() {
 		jungle();
 	} else if (currentLocation === "archway") {
 		cliffBridge();
-	} else if (currentLocation === "temple") {
+	} else if (currentLocation === "templeCourtyard") {
 		templeStatue();
 	} else if (currentLocation === "templeTomb") {
-		temple();						
+		templeCourtyard();
+	} else if (currentLocation === "templeEntrance") {
+		jungleClearing();							
 	} else {
 		showMessage(message);
 	}

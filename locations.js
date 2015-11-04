@@ -88,16 +88,26 @@ function jungleDeadEnd() {
 	disableEast();	
 }
 
-function temple() {
-	currentLocation = "temple";
-	var message = "You have reached the ancient ruins of the Temple of Aboubaker! You are in a courtyard and notice three structures to the north, east and west. Investigate!";
+function templeEntrance() {
+	currentLocation = "templeEntrance";
+	var message = "You have reached the ancient ruins of the Temple of Aboubaker! Head north to the courtyard.";
 	showMessage(message);
-		if (scoreTemple === true) {
+		if (scoreTempleEntrance === true) {
 			score += 5;
-			scoreTemple = false;
+			scoreTempleEntrance = false;
 			showScore(score);
 		}
+}
 
+function templeCourtyard() {
+	currentLocation = "templeCourtyard";
+	var message = "You are in a courtyard and notice three structures to the north, east and west. Investigate!";
+	showMessage(message);
+		if (scoreTempleCourtyard === true) {
+			score += 5;
+			scoreTempleCourtyard = false;
+			showScore(score);
+		}
 }
 
 function templePyramid() {
