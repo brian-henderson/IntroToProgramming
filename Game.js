@@ -80,25 +80,28 @@ function East() {
 
 function South() {
 	var message = "You can't go south here. Try a different direction.";
-	buttonEnable();
-
-	if (currentLocation === "jungle") {
-		beach();
-	} else if (currentLocation === "cliffBridge") {
-		cliff();
-	} else if (currentLocation === "jungleDeadEnd") {
-		archway();
-	} else if (currentLocation === "archway") {
-		jungleClearing();
-	} else if (currentLocation === "templeCourtyard") {
-		templeEntrance();	
-	} else if (currentLocation === "templePyramid") {
-		templeCourtyard();
-	} else if (currentLocation === "templePyramidThrone") {
-		templePyramid();					
-	} else {
-		showMessage(message);
-	}
+	switch (currentLocation) {
+		case "jungle":
+			beach();
+			break;
+		case "cliffBridge":
+			cliff();
+			break;
+		case "jungleDeadEnd":
+			archway();
+			break;
+		case "archway":
+			jungleClearing();
+			break;
+		case "templePyramid":
+			temple();
+			break;
+		case "templePyramidThrone":
+			templePyramid();
+			break;					
+		default:
+			showMessage(message);
+	}	
 }
 
 function West() {
