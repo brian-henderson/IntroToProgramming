@@ -23,7 +23,9 @@ function jungle() {
 			score += 5;
 			scoreJungle = false;
 			showScore(score);
-		}	
+		}
+	disableNorth();
+	disableWest();		
 }
 
 function cliff() {
@@ -34,6 +36,8 @@ function cliff() {
 			score += 5;
 			scoreCliff = false;
 			showScore(score);
+		disableSouth();
+		disableEast();	
 	}	
 }
 
@@ -46,6 +50,8 @@ function cliffBridge() {
 			scoreCliffBridge = false;
 			showScore(score);
 		}
+	disableNorth();
+	disableWest();	
 }
 
 function archway() {
@@ -57,6 +63,7 @@ function archway() {
 			scoreArchway = false;
 			showScore(score);
 		}
+	disableEast();	
 }
 
 function jungleClearing() {
@@ -68,12 +75,17 @@ function jungleClearing() {
 			scoreJungleClearing = false;
 			showScore(score);
 		}
+	disableWest();
+	disableSouth();
 }
 
 function jungleDeadEnd() {
 	currentLocation = "jungleDeadEnd";
 	var message = "You have reached a dead end as you are stopped by a waterfall. Try turning around.";
-	showMessage(message);	
+	showMessage(message);
+	disableWest();
+	disableNorth();
+	disableEast();	
 }
 
 function temple() {
@@ -84,7 +96,8 @@ function temple() {
 			score += 5;
 			scoreTemple = false;
 			showScore(score);
-		}	
+		}
+
 }
 
 function templePyramid() {
