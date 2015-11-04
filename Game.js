@@ -19,6 +19,8 @@ var scoreTemplePyramid = true;
 var scoreTemplePyramidThrone = true;
 var scoreTempleCourtyard = true;
 
+//item variables
+var pendant = true;
 
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
@@ -57,6 +59,7 @@ function North () {
 
 function East() {
 	var message = "You can not head east here! Try a different direction.";
+	buttonEnable();
 	switch(currentLocation) {
 		case "jungle":
 			cliff();
@@ -80,6 +83,7 @@ function East() {
 
 function South() {
 	var message = "You can't go south here. Try a different direction.";
+	buttonEnable();	
 	switch (currentLocation) {
 		case "jungle":
 			beach();
@@ -106,6 +110,7 @@ function South() {
 
 function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
+	buttonEnable();	
 	switch (currentLocation) {
 		case "cliff":
 			jungle();
@@ -139,6 +144,8 @@ function directionInput(direction) {
 		East();
 	} else if (direction === "W" || direction ==="w") {
 		West();
+	} else if (direction === "T" || direction ==="t") {
+		take();	
 	} else {
 		showMessage(message);
 	}
@@ -166,4 +173,17 @@ function disableWest() {
 function disableSouth() {
 	document.getElementById("southBtn").disabled=true;
 }
+
+function take() {
+	if (currentLocation === "templeTomb" && pendant) {
+		pendant = false;
+	}
+}
+
+
+
+
+
+
+
 

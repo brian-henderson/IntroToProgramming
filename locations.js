@@ -152,7 +152,7 @@ function templeStatue() {
 
 function templeTomb() {
 	currentLocation = "templeTomb"
-	var message = "There seems to be nothing important here right now.";
+	var message = "Your in the temples crypt. You look around and find a pendant in one of the tombs. You should take it as it could be usefull later on";
 	showMessage(message);
 	disableNorth();
 	disableWest();
