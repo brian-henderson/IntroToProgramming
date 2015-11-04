@@ -106,20 +106,21 @@ function South() {
 
 function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
-	buttonEnable();
-
-	if (currentLocation === "cliff") {
-		jungle();
-	} else if (currentLocation === "archway") {
-		cliffBridge();
-	} else if (currentLocation === "templeCourtyard") {
-		templeTomb();
-	} else if (currentLocation === "templeStatue") {
-		templeCourtyard();
-	} else if (currentLocation === "templeEntrance") {
-		jungleClearing();							
-	} else {
-		showMessage(message);
+	switch (currentLocation) {
+		case "cliff":
+			jungle();
+			break;
+		case "archway":
+			cliffBridge();
+			break;
+		case "temple":
+			templeStatue();
+			break;
+		case "templeTomb":
+			temple();
+			break;
+		default:
+			showMessage(message);				
 	}
 }
 
