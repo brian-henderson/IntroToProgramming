@@ -97,6 +97,8 @@ function templeEntrance() {
 			scoreTempleEntrance = false;
 			showScore(score);
 		}
+	disableEast();
+	disableSouth();	
 }
 
 function templeCourtyard() {
@@ -107,7 +109,7 @@ function templeCourtyard() {
 			score += 5;
 			scoreTempleCourtyard = false;
 			showScore(score);
-		}
+		}	
 }
 
 function templePyramid() {
@@ -119,6 +121,8 @@ function templePyramid() {
 			scoreTemplePyramid = false;
 			showScore(score);
 		}
+	disableEast();
+	disableWest();	
 }
 
 function templePyramidThrone() {
@@ -131,16 +135,26 @@ function templePyramidThrone() {
 			showScore(score);
 		}
 	alert("YOU WIN!!!!! THANKS FOR PLAYING, WHO KNOWS WHAT THE FUTURE WILL HOLD!");
+		disableEast();
+		disableWest();
+		disableNorth();
 }
+
 
 function templeStatue() {
 	currentLocation = "templeStatue";
 	var message ="There seems to be nothing important here right now.";
 	showMessage(message);
+	disableNorth();
+	disableEast();
+	disableSouth();
 }
 
 function templeTomb() {
 	currentLocation = "templeTomb"
 	var message = "There seems to be nothing important here right now.";
 	showMessage(message);
+	disableNorth();
+	disableWest();
+	disableSouth();
 }

@@ -62,8 +62,8 @@ function East() {
 	} else if (currentLocation === "jungleClearing") {
 		templeEntrance();
 	} else if (currentLocation === "templeCourtyard") {
-		templeTomb();
-	} else if (currentLocation === "templeStatue") {
+		templeStatue();
+	} else if (currentLocation === "templeTomb") {
 		templeCourtyard();					
 	} else {
 		showMessage(message);
@@ -102,8 +102,8 @@ function West() {
 	} else if (currentLocation === "archway") {
 		cliffBridge();
 	} else if (currentLocation === "templeCourtyard") {
-		templeStatue();
-	} else if (currentLocation === "templeTomb") {
+		templeTomb();
+	} else if (currentLocation === "templeStatue") {
 		templeCourtyard();
 	} else if (currentLocation === "templeEntrance") {
 		jungleClearing();							
