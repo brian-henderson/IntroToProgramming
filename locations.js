@@ -35,3 +35,23 @@ function East() {
 		showMessage(message);
 	}		
 }
+
+function South() {
+	var message = "You can't go south here. Try a different direction.";
+
+	if (currentLocation === "jungle") {
+		beach();
+	} else if (currentLocation === "cliffBridge") {
+		cliff();
+	} else if (currentLocation === "jungleDeadEnd") {
+		archway();
+	} else if (currentLocation === "archway") {
+		jungleClearing();
+	} else if (currentLocation === "templePyramid") {
+		temple();
+	} else if (currentLocation === "templePyramidThrone") {
+		templePyramid();					
+	} else {
+		showMessage(message);
+	}
+}

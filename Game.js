@@ -26,26 +26,6 @@ function showScore(descrip) {
 	document.getElementById("score").innerHTML = descrip;
 }
 
-function South() {
-	var message = "You can't go south here. Try a different direction.";
-
-	if (currentLocation === "jungle") {
-		beach();
-	} else if (currentLocation === "cliffBridge") {
-		cliff();
-	} else if (currentLocation === "jungleDeadEnd") {
-		archway();
-	} else if (currentLocation === "archway") {
-		jungleClearing();
-	} else if (currentLocation === "templePyramid") {
-		temple();
-	} else if (currentLocation === "templePyramidThrone") {
-		templePyramid();					
-	} else {
-		showMessage(message);
-	}
-}
-
 function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
 
