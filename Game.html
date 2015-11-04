@@ -39,6 +39,9 @@
 	<div id="message"></div> 
 		<br>
 
+	<div id="inventory"></div>
+		<br>	
+
 	Enter a Direction: <input id="command" type="text">
 		<button onclick="
 			var userInput = document.getElementById('command').value;
@@ -51,9 +54,11 @@
 	<button id="southBtn" onclick="South();">South</button>
 	<button id="westBtn" onclick="West();">West</button>
 		<br>
-	<button onclick"take();">Take Item</button>
+		<br>
+	<button onclick="take();">Take Item</button>
+	<button onclick="showInventory();">Inventory</button>
 		<br>	
-	
+		<br>
 	<button onclick="Reload();">Restart</button>	
 		<br><br>
 	

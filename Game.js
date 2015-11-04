@@ -7,6 +7,8 @@
 var currentLocation = "beach";
 var init = true;
 
+var inventory = [];
+
 var score = 0;
 var scoreJungle = true;
 var scoreCliff = true;
@@ -46,11 +48,11 @@ function North () {
 		case "jungleClearing":
 			archway ();
 			break;
-		case "temple":
-			templePyramid ();
+		case "templeEntrance":
+			templeCourtyard();
 			break;
 		case "templePyramid":
-			templePyramidThrone ();
+			templePyramidThrone();
 			break;
 		default:
 			showMessage(message);
@@ -68,13 +70,13 @@ function East() {
 			archway();
 			break;
 		case "jungleClearing":
-			temple();
+			templeEntrance();
 			break;
-		case "temple":
-			templeTomb();
+		case "templeCourtyard":
+			templeStatue();
 			break;
-		case "templeStatue":
-			temple();	
+		case "templeTomb":
+			templeCourtyard();	
 			break;
 		default:
 			showMessage(message);				
@@ -97,12 +99,15 @@ function South() {
 		case "archway":
 			jungleClearing();
 			break;
+		case "templeCourtyard":
+			templeEntrance();
+			break;
 		case "templePyramid":
-			temple();
+			templeCourtyard();
 			break;
 		case "templePyramidThrone":
 			templePyramid();
-			break;					
+			break;									
 		default:
 			showMessage(message);
 	}	
@@ -118,12 +123,15 @@ function West() {
 		case "archway":
 			cliffBridge();
 			break;
-		case "temple":
-			templeStatue();
+		case "templeCourtyard":
+			templeTomb();
 			break;
-		case "templeTomb":
-			temple();
+		case "templeStatue":
+			templeCourtyard();
 			break;
+		case "templeEntrance":
+			jungleClearing();
+			break;				
 		default:
 			showMessage(message);				
 	}
@@ -145,7 +153,9 @@ function directionInput(direction) {
 	} else if (direction === "W" || direction ==="w") {
 		West();
 	} else if (direction === "T" || direction ==="t") {
-		take();	
+		take();
+	} else if (direction === "I" || direction ==="i") {
+		showInventory();				
 	} else {
 		showMessage(message);
 	}
@@ -177,8 +187,19 @@ function disableSouth() {
 function take() {
 	if (currentLocation === "templeTomb" && pendant) {
 		pendant = false;
+		inventory.push("Pendant ");
 	}
 }
+
+function showInventory() {
+	var playerInventory = "";
+	for (i=0; i < inventory.length; i++) {
+		playerInventory = playerInventory + inventory[i];
+	}
+	document.getElementById("inventory").innerHTML=playerInventory;
+}
+
+
 
 
 
