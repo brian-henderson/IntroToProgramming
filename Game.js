@@ -7,8 +7,11 @@
 var currentLocation = "beach";
 var init = true;
 
-var inventory = [];
 
+var inventory = [];
+var breadcrumbTrail = [];
+
+//score variables
 var score = 0;
 var scoreJungle = true;
 var scoreCliff = true;
@@ -35,6 +38,8 @@ function showScore(descrip) {
 function North () {
 	var message = "You can not go north this way! Try a different direction.";
 	buttonEnable();
+	breadcrumbTrail.push("North ");
+
 	switch (currentLocation) {
 		case "beach":
 			jungle ();
@@ -62,6 +67,8 @@ function North () {
 function East() {
 	var message = "You can not head east here! Try a different direction.";
 	buttonEnable();
+	breadcrumbTrail.push("East ");
+
 	switch(currentLocation) {
 		case "jungle":
 			cliff();
@@ -86,6 +93,8 @@ function East() {
 function South() {
 	var message = "You can't go south here. Try a different direction.";
 	buttonEnable();	
+	breadcrumbTrail.push("South ");	
+
 	switch (currentLocation) {
 		case "jungle":
 			beach();
@@ -116,6 +125,8 @@ function South() {
 function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
 	buttonEnable();	
+	breadcrumbTrail.push("West ");
+
 	switch (currentLocation) {
 		case "cliff":
 			jungle();
@@ -155,7 +166,9 @@ function directionInput(direction) {
 	} else if (direction === "T" || direction ==="t") {
 		take();
 	} else if (direction === "I" || direction ==="i") {
-		showInventory();				
+		showInventory();
+	} else if (direction === "P" || direction ==="p") {
+		moveHistory();					
 	} else {
 		showMessage(message);
 	}
@@ -196,13 +209,16 @@ function showInventory() {
 	for (i=0; i < inventory.length; i++) {
 		playerInventory = playerInventory + inventory[i];
 	}
-	document.getElementById("inventory").innerHTML=playerInventory;
+	document.getElementById("infoMessages").innerHTML=playerInventory;
 }
 
-
-
-
-
+function moveHistory() {
+	var breadcrumb = "";
+	for (i=0; i < breadcrumbTrail.length; i++) {
+		breadcrumb = breadcrumb + breadcrumbTrail[i];
+	}	
+	document.getElementById("infoMessages").innerHTML=breadcrumb;
+}
 
 
 
