@@ -4,6 +4,7 @@
    CMPT 120L 
 */
 
+//initialization variables
 var currentLocation = "beach";
 var init = true;
 
@@ -168,7 +169,9 @@ function directionInput(direction) {
 	} else if (direction === "I" || direction ==="i") {
 		showInventory();
 	} else if (direction === "P" || direction ==="p") {
-		moveHistory();					
+		moveHistory();
+	} else if (direction === "H" || direction ==="h") {
+		displayHelp();							
 	} else {
 		showMessage(message);
 	}
@@ -220,7 +223,11 @@ function moveHistory() {
 	document.getElementById("infoMessages").innerHTML=breadcrumb;
 }
 
+function displayHelp() {
+	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) I/i (Show Inventory) P/p (Move History) H/h (Help)";
 
+	document.getElementById("infoMessages").innerHTML=message;
+}
 
 
 
