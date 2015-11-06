@@ -8,9 +8,13 @@
 var currentLocation = "beach";
 var init = true;
 
-
 var inventory = [];
 var breadcrumbTrail = [];
+
+//unlocking the statue
+var unlockStatue1 = false;
+var unlockStatue2 = false;
+var unlockStatue3 = false;
 
 //score variables
 var score = 0;
@@ -226,14 +230,17 @@ function take() {
 		pendant = false;
 		inventory.push(" | Pendant | ");
 		showInfoMessage(message);
+		unlockStatue1 = true;
 	} else if (currentLocation === "templePyramidEastRoom" && amulet) {
 		amulet = false;
 		inventory.push(" | Amulet | ");
 		showInfoMessage(message);
+		unlockStatue2 = true;
 	} else if (currentLocation === "templePyramidThrone" && ancientStaff) {
 		ancientStaff = false;
 		inventory.push(" | Ancient Staff of Abbubakar | ");
 		showInfoMessage(message);
+		unlockStatue3 = true;
 	} 
 }
 

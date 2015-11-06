@@ -103,7 +103,7 @@ function templeEntrance() {
 
 function templeCourtyard() {
 	currentLocation = "templeCourtyard";
-	var message = "You are in a courtyard and notice three structures to the north, east and west. Investigate!";
+	var message = "You are in a courtyard and notice three structures. A pyramid to the north, a large statue to the east and a tomb to the west. Investigate. ";
 	showMessage(message);
 		if (scoreTempleCourtyard === true) {
 			score += 5;
@@ -140,17 +140,26 @@ function templePyramidThrone() {
 
 function templeStatue() {
 	currentLocation = "templeStatue";
-	var message ="There seems to be nothing important here right now.";
-	showMessage(message);
-		if (scoreTempleStatue === true) {
-			score += 5;
-			scoreTempleStatue = false;
-			showScore(score);
-		}	
-	disableNorth();
-	disableEast();
-	disableSouth();
+	var message1 = "Your not really sure what the statue is for. You should investigate some other structures first.";
+	var message2 = "You have come back to the statue and with the items you have, you have the keys to gain access to the Secret Underground Temple! BUT you don't have the knowledge to go anyfurther. Thanks for playing!";
+
+	if (unlockStatue1 && unlockStatue2 && unlockStatue3) {
+		showMessage(message2);
+			disableNorth();
+			disableEast();
+			disableSouth();
+			disableWest();
+	} else if (scoreTempleStatue === true) {
+		score += 5;
+		scoreTempleStatue = false;
+		showScore(score);
+		showMessage(message1);
+			disableNorth();
+			disableEast();
+			disableSouth();	
+	}
 }
+
 
 function templeTomb() {
 	currentLocation = "templeTomb";
