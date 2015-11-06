@@ -42,6 +42,10 @@ function showScore(descrip) {
 	document.getElementById("score").innerHTML = descrip;
 }
 
+function showInfoMessage(descrip) {
+	document.getElementById("infoMessages").innerHTML = descrip;
+}
+
 function North () {
 	var message = "You can not go north this way! Try a different direction.";
 	buttonEnable();
@@ -216,15 +220,20 @@ function disableSouth() {
 }
 
 function take() {
+	var message = "Item Taken!";
+	
 	if (currentLocation === "templeTomb" && pendant) {
 		pendant = false;
 		inventory.push(" | Pendant | ");
+		showInfoMessage(message);
 	} else if (currentLocation === "templePyramidEastRoom" && amulet) {
 		amulet = false;
 		inventory.push(" | Amulet | ");
+		showInfoMessage(message);
 	} else if (currentLocation === "templePyramidThrone" && ancientStaff) {
 		ancientStaff = false;
 		inventory.push(" | Ancient Staff of Abbubakar | ");
+		showInfoMessage(message);
 	} 
 }
 
@@ -233,7 +242,7 @@ function showInventory() {
 	for (i=0; i < inventory.length; i++) {
 		playerInventory = playerInventory + inventory[i];
 	}
-	document.getElementById("infoMessages").innerHTML=playerInventory;
+	showInfoMessage(playerInventory);
 }
 
 function moveHistory() {
@@ -241,13 +250,12 @@ function moveHistory() {
 	for (i=0; i < breadcrumbTrail.length; i++) {
 		breadcrumb = breadcrumb + breadcrumbTrail[i];
 	}	
-	document.getElementById("infoMessages").innerHTML=breadcrumb;
+	showInfoMessage(breadcrumb);
 }
 
 function displayHelp() {
 	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) I/i (Show Inventory) P/p (Move History) H/h (Help)";
-
-	document.getElementById("infoMessages").innerHTML=message;
+	showInfoMessage(message);
 }
 
 
