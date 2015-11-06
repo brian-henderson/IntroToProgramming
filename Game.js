@@ -31,6 +31,7 @@ var scoreTemplePyramidEastRoom = true;
 //item variables
 var pendant = true;
 var amulet = true;
+var ancientStaff = true;
 
 
 function showMessage(descrip) {
@@ -217,11 +218,14 @@ function disableSouth() {
 function take() {
 	if (currentLocation === "templeTomb" && pendant) {
 		pendant = false;
-		inventory.push("  Pendant  ");
+		inventory.push(" | Pendant | ");
 	} else if (currentLocation === "templePyramidEastRoom" && amulet) {
 		amulet = false;
-		inventory.push("  Amulet  ");
-	}
+		inventory.push(" | Amulet | ");
+	} else if (currentLocation === "templePyramidThrone" && ancientStaff) {
+		ancientStaff = false;
+		inventory.push(" | Ancient Staff of Abbubakar | ");
+	} 
 }
 
 function showInventory() {

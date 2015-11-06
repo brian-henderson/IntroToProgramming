@@ -126,15 +126,13 @@ function templePyramid() {
 
 function templePyramidThrone() {
 	currentLocation = "templePyramidThrone";
-	var message = "You have entered the throne room and notice an ancient text on the the wall. Unfortunately you are unable to interprete it as of now, but it may contain the secret to unlocking the secret catacombs!";
+	var message = "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.";
 	showMessage(message);
 		if (scoreTemplePyramidThrone === true) {
 			score += 5;
 			scoreTemplePyramidThrone = false;
 			showScore(score);
 		}
-	alert("YOU WIN!!!!! THANKS FOR PLAYING, WHO KNOWS WHAT THE FUTURE WILL HOLD!");
-		disableEast();
 		disableWest();
 		disableNorth();
 }
