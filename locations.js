@@ -188,8 +188,3 @@ function templePyramidEastRoom() {
 	disableEast();
 	disableSouth();	
 }
-
-
-
-
-
