@@ -114,14 +114,13 @@ function templeCourtyard() {
 
 function templePyramid() {
 	currentLocation = "templePyramid";
-	var message = "You have entered the pyramid structure, but it looks like the only way to go is north because the other rooms seem to be blocked off.";
+	var message = "You have entered the pyramid structure! Time to explore! Who knows what you might find!";
 	showMessage(message);
 		if (scoreTemplePyramid === true) {
 			score += 5;
 			scoreTemplePyramid = false;
 			showScore(score);
 		}
-	disableEast();
 	disableWest();	
 }
 
@@ -145,16 +144,45 @@ function templeStatue() {
 	currentLocation = "templeStatue";
 	var message ="There seems to be nothing important here right now.";
 	showMessage(message);
+		if (scoreTempleStatue === true) {
+			score += 5;
+			scoreTempleStatue = false;
+			showScore(score);
+		}	
 	disableNorth();
 	disableEast();
 	disableSouth();
 }
 
 function templeTomb() {
-	currentLocation = "templeTomb"
-	var message = "Your in the temples crypt. You look around and find a pendant in one of the tombs. You should take it as it could be usefull later on";
+	currentLocation = "templeTomb";
+	var message = "Your in the temples crypt. You look around and find a cross shaped pendant in one of the tombs. You should take it as it could be usefull later on";
 	showMessage(message);
+	if (scoreTempleTomb === true) {
+			score += 5;
+			scoreTempleTomb = false;
+			showScore(score);
+		}
 	disableNorth();
 	disableWest();
 	disableSouth();
 }
+
+function templePyramidEastRoom() {
+	currentLocation = "templePyramidEastRoom";
+	var message = "After exploring in the pyramid, you have come across a room with a chest in it. After opening the chest, you have found a circulaur amulet. Might be wise to take it.";
+	showMessage(message);
+	if (scoreTemplePyramidEastRoom === true) {
+			score += 5;
+			scoreTemplePyramidEastRoom = false;
+			showScore(score);
+		}
+	disableNorth();
+	disableEast();
+	disableSouth();	
+}
+
+
+
+
+

@@ -24,9 +24,13 @@ var scoreTempleEntrance = true;
 var scoreTemplePyramid = true;
 var scoreTemplePyramidThrone = true;
 var scoreTempleCourtyard = true;
+var scoreTempleStatue = true;
+var scoreTempleTomb = true;
+var scoreTemplePyramidEastRoom = true;
 
 //item variables
 var pendant = true;
+
 
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
@@ -60,6 +64,9 @@ function North () {
 		case "templePyramid":
 			templePyramidThrone();
 			break;
+		case "templeCourtyard":
+			templePyramid();
+			break;		
 		default:
 			showMessage(message);
 	}
@@ -85,6 +92,9 @@ function East() {
 			break;
 		case "templeTomb":
 			templeCourtyard();	
+			break;
+		case "templePyramid":
+			templePyramidEastRoom();
 			break;
 		default:
 			showMessage(message);				
@@ -143,7 +153,10 @@ function West() {
 			break;
 		case "templeEntrance":
 			jungleClearing();
-			break;				
+			break;
+		case "templePyramidEastRoom":
+			templePyramid();
+			break;					
 		default:
 			showMessage(message);				
 	}
@@ -228,6 +241,7 @@ function displayHelp() {
 
 	document.getElementById("infoMessages").innerHTML=message;
 }
+
 
 
 
