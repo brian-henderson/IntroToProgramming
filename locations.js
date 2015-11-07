@@ -1,3 +1,9 @@
+/* Brian Henderson
+   November 10, 2015
+   Project 4
+   CMPT 120L 
+*/
+
 function beach() {
 	currentLocation = "beach";
 	var message = "You are back on the beach.";	
@@ -137,7 +143,6 @@ function templePyramidThrone() {
 		disableNorth();
 }
 
-
 function templeStatue() {
 	currentLocation = "templeStatue";
 	var message1 = "Your not really sure what the statue is for. You should investigate some other structures first.";
@@ -159,7 +164,6 @@ function templeStatue() {
 			disableSouth();	
 	}
 }
-
 
 function templeTomb() {
 	currentLocation = "templeTomb";

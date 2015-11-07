@@ -1,6 +1,6 @@
 /* Brian Henderson
-   November 23, 2015
-   Project 3
+   November 10, 2015
+   Project 4
    CMPT 120L 
 */
 
@@ -50,23 +50,23 @@ function showInfoMessage(descrip) {
 	document.getElementById("infoMessages").innerHTML = descrip;
 }
 
-function North () {
+function North() {
 	var message = "You can not go north this way! Try a different direction.";
 	buttonEnable();
 	breadcrumbTrail.push("North ");
 
 	switch (currentLocation) {
 		case "beach":
-			jungle ();
+			jungle();
 			break;
 		case "cliff":
-			cliffBridge ();
+			cliffBridge();
 			break;
 		case "archway":
-			jungleDeadEnd ();
+			jungleDeadEnd();
 			break;
 		case "jungleClearing":
-			archway ();
+			archway();
 			break;
 		case "templeEntrance":
 			templeCourtyard();
@@ -264,7 +264,3 @@ function displayHelp() {
 	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) I/i (Show Inventory) P/p (Move History) H/h (Help)";
 	showInfoMessage(message);
 }
-
-
-
-
