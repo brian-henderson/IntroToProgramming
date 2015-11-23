@@ -1,8 +1,8 @@
 <!doctype html>
 
 <!-- Brian Henderson
-	 September 15 2015
-	 Project 1
+	 November 10 2015
+	 Project 4
 	 CMPT 120L -->
 
 <html>
@@ -11,6 +11,7 @@
 	<meta charset="utf-8"/>
 	
 	<script src="Game.js" type="text/javascript"></script>
+	<script src="locations.js" type="text/javascript"></script>
 
 	<style type="text/css">
 
@@ -26,35 +27,49 @@
 						text-decoration: underline; 
 						font-weight: bold; 
 					  }
+		
+		img { width: 55%;
+			  opacity: .7;
+			}
+					  
 
 	</style>
 </head>
-<body>
+<body onload="beach();">
 	<h1> The Lost Temple of Aboubakar </h1>	
 	<p id="scoreDisplay"> Score </p>
 	<div id="score">0</div> 
 		<br>
-
-	<div id="message"> Welcome! You have spent the past year searching the Atlantic and you think that you may have finally found the island where the lost temple and treasure of the Great King Aboubaker is. There is much to explore on this island, you can try walking the coast but it might be better to check out the jungle and explore the mysterys that lie ahead! </div> 
+	<div id="message"></div> 
 		<br>
-
+	<div id="infoMessages"></div>
+		<br>	
 	Enter a Direction: <input id="command" type="text">
 		<button onclick="
 			var userInput = document.getElementById('command').value;
 			directionInput(userInput);
-		">GO!</button>	
+		">GO!</button>
+		<br>	
 		<br>
-
 	<button id="northBtn" onclick="North();">North</button>		
 	<button id="eastBtn" onclick="East();">East</button>		
 	<button id="southBtn" onclick="South();">South</button>
 	<button id="westBtn" onclick="West();">West</button>
 		<br>
-	
+		<br>
+	<button onclick="take();">Take Item</button>
+	<button onclick="showInventory();">Inventory</button>
+	<button onclick="moveHistory();">Move History</button>
+	<button onclick="displayHelp();">Help</button>
+		<br>	
+		<br>
 	<button onclick="Reload();">Restart</button>	
-		<br><br>
-	
+		<br>
+		<br>	
 	<a href="mailto:brian.henderson1@marist.edu"> Stuck? Send me an email!</a>
+		<br>
+		<br>
+	<img src="GameMapV.4.png" alt="Game Map">
 </body>
 
 </html>	
