@@ -141,6 +141,7 @@ function templePyramidThrone() {
 		}
 		disableWest();
 		disableNorth();
+		disableEast();
 }
 
 function templeStatue() {
