@@ -1,0 +1,17 @@
+body { color: #1F2C80;
+	   text-align: center; 
+	   font-family: Lucida, sans-serif;
+	   background-image: url("island.jpg");
+	 }
+
+#scoreDisplay { color: #1F2C80; 
+				text-align: center; 
+				font-family: Lucida, sans-serif; 
+				text-decoration: underline; 
+				font-weight: bold; 
+			  }
+		
+img { width: 55%;
+	  opacity: .7;
+	}
+	  
