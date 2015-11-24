@@ -5,7 +5,7 @@
 */
 
 //initialization variables
-var currentLocation = "beach";
+var currentLocation = 0;
 var init = true;
 
 var inventory = [];
@@ -16,26 +16,12 @@ var unlockStatue1 = false;
 var unlockStatue2 = false;
 var unlockStatue3 = false;
 
-//score variables
-var score = 0;
-var scoreJungle = true;
-var scoreCliff = true;
-var scoreCliffBridge = true;
-var scoreArchway = true;
-var scoreJungleDeadEnd = true;
-var scoreJungleClearing = true;
-var scoreTempleEntrance = true;
-var scoreTemplePyramid = true;
-var scoreTemplePyramidThrone = true;
-var scoreTempleCourtyard = true;
-var scoreTempleStatue = true;
-var scoreTempleTomb = true;
-var scoreTemplePyramidEastRoom = true;
-
 //item variables
 var pendant = true;
 var amulet = true;
 var ancientStaff = true;
+
+var score = 0;
 
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
@@ -55,26 +41,26 @@ function North() {
 	breadcrumbTrail.push("North ");
 
 	switch (currentLocation) {
-		case "beach":
-			jungle();
+		case 0:
+			goToJungle();
 			break;
-		case "cliff":
-			cliffBridge();
+		case 2:
+			goToCliffBridge();
 			break;
-		case "archway":
-			jungleDeadEnd();
+		case 4:
+			goToJungleDeadEnd();
 			break;
-		case "jungleClearing":
-			archway();
+		case 6:
+			goToArchway();
 			break;
-		case "templeEntrance":
-			templeCourtyard();
+		case 7:
+			goToTempleCourtyard();
 			break;
-		case "templePyramid":
-			templePyramidThrone();
+		case 11:
+			goToTemplePyramidThrone();
 			break;
-		case "templeCourtyard":
-			templePyramid();
+		case 8:
+			goToTemplePyramid();
 			break;		
 		default:
 			showMessage(message);
@@ -84,26 +70,26 @@ function North() {
 function East() {
 	var message = "You can not head east here! Try a different direction.";
 	buttonEnable();
-	breadcrumbTrail.push("East ");
+	breadcrumbTrail.push("East");
 
 	switch(currentLocation) {
-		case "jungle":
-			cliff();
+		case 1:
+			goToCliff();
 			break;
-		case "cliffBridge":
-			archway();
+		case 3:
+			goToArchway();
 			break;
-		case "jungleClearing":
-			templeEntrance();
+		case 6:
+			goToTempleEntrance();
 			break;
-		case "templeCourtyard":
-			templeStatue();
+		case 8:
+			goToTempleStatue();
 			break;
-		case "templeTomb":
-			templeCourtyard();	
+		case 9:
+			goToTempleCourtyard();	
 			break;
-		case "templePyramid":
-			templePyramidEastRoom();
+		case 11:
+			goToTemplePyramidEastRoom();
 			break;
 		default:
 			showMessage(message);				
@@ -116,26 +102,26 @@ function South() {
 	breadcrumbTrail.push("South ");	
 
 	switch (currentLocation) {
-		case "jungle":
-			beach();
+		case 1:
+			goToBeach();
 			break;
-		case "cliffBridge":
-			cliff();
+		case 3:
+			goToCliff();
 			break;
-		case "jungleDeadEnd":
-			archway();
+		case 5:
+			goToArchway();
 			break;
-		case "archway":
-			jungleClearing();
+		case 4:
+			goToJungleClearing();
 			break;
-		case "templeCourtyard":
-			templeEntrance();
+		case 8:
+			goToTempleEntrance();
 			break;
-		case "templePyramid":
-			templeCourtyard();
+		case 11:
+			goToTempleCourtyard();
 			break;
-		case "templePyramidThrone":
-			templePyramid();
+		case 13:
+			goToTemplePyramid();
 			break;									
 		default:
 			showMessage(message);
@@ -148,23 +134,23 @@ function West() {
 	breadcrumbTrail.push("West ");
 
 	switch (currentLocation) {
-		case "cliff":
-			jungle();
+		case 2:
+			goToJungle();
 			break;
-		case "archway":
-			cliffBridge();
+		case 4:
+			goToCliffBridge();
 			break;
-		case "templeCourtyard":
-			templeTomb();
+		case 8:
+			goToTempleTomb();
 			break;
-		case "templeStatue":
-			templeCourtyard();
+		case 10:
+			goToTempleCourtyard();
 			break;
-		case "templeEntrance":
-			jungleClearing();
+		case 7:
+			goToJungleClearing();
 			break;
-		case "templePyramidEastRoom":
-			templePyramid();
+		case 12:
+			goToTemplePyramid();
 			break;					
 		default:
 			showMessage(message);				
@@ -264,12 +250,21 @@ function displayHelp() {
 	showInfoMessage(message);
 }
 
-function score(visited){
-if (visited === true) {
+function updateScore(location){
+if (location.visited === true) {
 		score += 5;
-		visited = false;
+		location.visited = false;
 		showScore(score);
 	}
 }
+
+/*
+function disable(north, east, south, west){
+	document.getElementById("northBtn").disabled=north;
+	document.getElementById("eastBtn").disabled=east;
+	document.getElementById("westBtn").disabled=south;
+	document.getElementById("southBtn").disabled=west;
+}
+*/
 
 
