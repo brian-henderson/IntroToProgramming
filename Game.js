@@ -28,9 +28,9 @@ function Item(name, description) {
 	this.description = description;
 }
 
-var pendant = new Item("pendant", "A shiny, cross shaped pendant");
-var amulet = new Item("amulet", "A jeweledm circulaur amulet");
-var ancientStaff = new Item("ancient staff", "The Ancient Staff of the Great King Abbubakar");
+var pendant = new Item("pendant", "A shiny, cross shaped pendant.");
+var amulet = new Item("amulet", "A jeweled circulaur amulet.");
+var ancientStaff = new Item("ancient staff", "The Ancient Staff of the Great King Abbubakar!");
 
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
@@ -191,7 +191,9 @@ function directionInput(direction) {
 	} else if (direction === "P" || direction ==="p") {
 		moveHistory();
 	} else if (direction === "H" || direction ==="h") {
-		displayHelp();							
+		displayHelp();
+	} else if (direction === "X" || direction ==="x") {
+		examine(currentLocation);									
 	} else {
 		showMessage(message);
 	}
@@ -253,4 +255,16 @@ if (location.visited === true) {
 		showScore(score);
 	}
 }
+
+function examine(currentLocation){
+	if (locations[currentLocation].item !=0) {
+		showInfoMessage("Oh you found something! " + locations[currentLocation].item.description + " Take it! It could be useful.");
+	} else {
+	showInfoMessage("Nothing to be found here.");
+	}
+}
+
+
+
+
 

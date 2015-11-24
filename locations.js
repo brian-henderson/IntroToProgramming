@@ -80,7 +80,7 @@ function goToTemplePyramid() {
 	currentLocation = 11;
 	showMessage(locations[11].description);
 	updateScore(locations[11]);
-	disabele(false, false, false, true);	
+	disable(false, false, false, true);	
 }
 
 function goToTemplePyramidThrone() {
