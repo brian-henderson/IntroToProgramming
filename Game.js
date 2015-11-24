@@ -37,7 +37,6 @@ function showInfoMessage(descrip) {
 
 function North() {
 	var message = "You can not go north this way! Try a different direction.";
-	buttonEnable();
 	breadcrumbTrail.push("North ");
 
 	switch (currentLocation) {
@@ -69,7 +68,6 @@ function North() {
 
 function East() {
 	var message = "You can not head east here! Try a different direction.";
-	buttonEnable();
 	breadcrumbTrail.push("East");
 
 	switch(currentLocation) {
@@ -98,7 +96,6 @@ function East() {
 
 function South() {
 	var message = "You can't go south here. Try a different direction.";
-	buttonEnable();	
 	breadcrumbTrail.push("South ");	
 
 	switch (currentLocation) {
@@ -130,7 +127,6 @@ function South() {
 
 function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
-	buttonEnable();	
 	breadcrumbTrail.push("West ");
 
 	switch (currentLocation) {
@@ -185,27 +181,11 @@ function directionInput(direction) {
 	}
 }
 
-function buttonEnable() {
-	document.getElementById("northBtn").disabled=false;
-	document.getElementById("eastBtn").disabled=false;
-	document.getElementById("southBtn").disabled=false;
-	document.getElementById("westBtn").disabled=false;
-}
-
-function disableNorth() {
-	document.getElementById("northBtn").disabled=true;
-}
-
-function disableEast () {
-	document.getElementById("eastBtn").disabled=true;
-}
-
-function disableWest() {
-	document.getElementById("westBtn").disabled=true;
-}
-
-function disableSouth() {
-	document.getElementById("southBtn").disabled=true;
+function disable(north, east, south, west){
+	document.getElementById("northBtn").disabled=north;
+	document.getElementById("eastBtn").disabled=east;
+	document.getElementById("southBtn").disabled=south;
+	document.getElementById("westBtn").disabled=west;
 }
 
 function take() {
@@ -257,14 +237,4 @@ if (location.visited === true) {
 		showScore(score);
 	}
 }
-
-/*
-function disable(north, east, south, west){
-	document.getElementById("northBtn").disabled=north;
-	document.getElementById("eastBtn").disabled=east;
-	document.getElementById("westBtn").disabled=south;
-	document.getElementById("southBtn").disabled=west;
-}
-*/
-
 

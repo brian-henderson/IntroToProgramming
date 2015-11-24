@@ -17,40 +17,35 @@ function goToBeach() {
 			showMessage(locations[0].description);
 		}	
 		
-	disableEast();
-	disableSouth();
-	disableWest();
+	disable(false, true, true, true);
 }
 
 function goToJungle() {
 	currentLocation = 1;
 	showMessage(locations[1].description);
 	updateScore(locations[1]);
-	disableNorth();
-	disableWest();		
+	disable(true, false, false, true);		
 }
 
 function goToCliff() {
 	currentLocation = 2;
 	showMessage(locations[2].description);
 	updateScore(locations[2]);
-	disableSouth();
-	disableEast();	
+	disable(false, false, false, true);
 }
 
 function goToCliffBridge() {
 	currentLocation = 3;
 	showMessage(locations[3].description);
 	updateScore(locations[3]);
-	disableNorth();
-	disableWest();	
+	disable(true, false, false, true);	
 }
 
 function goToArchway() {
 	currentLocation = 4;
 	showMessage(locations[4].description);
 	updateScore(locations[4]);
-	disableEast();	
+	disable(false, true, false, false);
 }
 
 function goToJungleClearing() {
@@ -59,22 +54,20 @@ function goToJungleClearing() {
 	updateScore(locations[6]);
 	disableWest();
 	disableSouth();
+	disable(false, false, true, true);
 }
 
 function goToJungleDeadEnd() {
 	currentLocation = 5;
 	showMessage(locations[5].description);
-	disableWest();
-	disableNorth();
-	disableEast();	
+	disable(false, false, true, false);	
 }
 
 function goToTempleEntrance() {
 	currentLocation = 7;
 	showMessage(locations[7].description);
 	updateScore(locations[7]);
-	disableEast();
-	disableSouth();	
+	disable(false, true, true, false);
 }
 
 function goToTempleCourtyard() {
@@ -87,16 +80,15 @@ function goToTemplePyramid() {
 	currentLocation = 11;
 	showMessage(locations[11].description);
 	updateScore(locations[11]);
-	disableWest();	
+	disableWest();
+	disabele(false, false, false, true);	
 }
 
 function goToTemplePyramidThrone() {
 	currentLocation = 13;
 	showMessage(locations[13].description);
 	updateScore(locations[13]);
-	disableWest();
-	disableNorth();
-	disableEast();
+	disable(true, true, false, true);
 }
 
 function goToTempleStatue() {
@@ -105,16 +97,11 @@ function goToTempleStatue() {
 
 	if (unlockStatue1 && unlockStatue2 && unlockStatue3) {
 		showMessage(message);
-			disableNorth();
-			disableEast();
-			disableSouth();
-			disableWest();
+		disable(true, true, true, true);
 	} else if (scoreTempleStatue === true) {
 		showMessage(locations[1].description);
 		updateScore(locations[1]);
-			disableNorth();
-			disableEast();
-			disableSouth();	
+		disable(true, true, true, false);
 	}
 }
 
@@ -122,18 +109,14 @@ function goToTempleTomb() {
 	currentLocation = 9;
 	showMessage(locations[9].description);
 	updateScore(locations[9]);
-	disableNorth();
-	disableWest();
-	disableSouth();
+	disable(true, false, true, true);
 }
 
 function goToTemplePyramidEastRoom() {
 	currentLocation = 12;
 	showMessage(locations[12].description);
 	updateScore(locations[12]);
-	disableNorth();
-	disableEast();
-	disableSouth();	
+	disable(true, true, true, false);	
 }
 
 function GameLocation(name, description, item) {
