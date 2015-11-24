@@ -18,10 +18,19 @@ var unlockStatue2 = false;
 var unlockStatue3 = false;
 
 //item variables
-var pendant = true;
-var amulet = true;
-var ancientStaff = true;
+var itemPendant = true;
+var itemAmulet = true;
+var itemAncientStaff = true;
 
+
+function Item(name, description) {
+	this.name = name;
+	this.description = description;
+}
+
+var pendant = new Item("pendant", "A shiny, cross shaped pendant");
+var amulet = new Item("amulet", "A jeweledm circulaur amulet");
+var ancientStaff = new Item("ancient staff", "The Ancient Staff of the Great King Abbubakar");
 
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
