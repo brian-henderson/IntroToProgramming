@@ -37,13 +37,6 @@ var pendant = true;
 var amulet = true;
 var ancientStaff = true;
 
-var player = [
-	currentLocation: "beach",
-	pointsEarned: 0,
-	inventory: [],
-	breadcrumbTrail: []
-];
-
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
 }
