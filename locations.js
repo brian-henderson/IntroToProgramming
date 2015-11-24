@@ -138,10 +138,10 @@ var deadEnd = new GameLocation("deadEnd", "You have reached a dead end as you ar
 var clearing = new GameLocation ("clearing", "You have reached a clearing in the jungle. You begin to loose hope after hours of searc...Wait. Whats that off to the east?", 0);
 var templeEntrance = new GameLocation ("templeEntrance", "You have reached the ancient ruins of the Temple of Aboubaker! Head north to the courtyard.", 0);
 var templeCourtyard = new GameLocation ("templeCourtyard", "You are in a courtyard and notice three structures. A pyramid to the north, a large statue to the east and a tomb to the west. Investigate.", 0);
-var templeTomb = new GameLocation ("tomb", "Your in the temples crypt. You look around and find a cross shaped pendant in one of the tombs. You should take it as it could be usefull later on", pendant);
+var templeTomb = new GameLocation ("tomb", "Your in the temples crypt. As you are going down the stairs, your flashlight picked up a glare. Investigate!", pendant);
 var templeStatue = new GameLocation ("templeStatue", "This statue is odd. It has a spot on the back for three items.", 0);
 var templePyramid = new GameLocation ("templePyramid", "You have entered the pyramid structure! Time to explore! Who knows what you might find!", 0);
-var templePyramidEastRoom = new GameLocation ("templePyramidEastRoom", "After exploring in the pyramid, you have come across a room with a chest in it. After opening the chest, you have found a circulaur amulet. Might be wise to take it.", amulet);
+var templePyramidEastRoom = new GameLocation ("templePyramidEastRoom", "After exploring in the pyramid, you have come across this bare room with a chest in it.", amulet);
 var templePyramidThrone = new GameLocation ("templePyramidThrone", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff);
 
 var locations = [beachShore, jungle, cliff, bridge, archway, deadEnd, clearing,
