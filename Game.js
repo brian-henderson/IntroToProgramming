@@ -12,11 +12,6 @@ var score = 0;
 var inventory = [];
 var breadcrumbTrail = [];
 
-//unlocking the statue
-var unlockStatue1 = false;
-var unlockStatue2 = false;
-var unlockStatue3 = false;
-
 //item variables
 var itemPendant = true;
 var itemAmulet = true;
@@ -209,28 +204,6 @@ function disable(north, east, south, west){
 	document.getElementById("southBtn").disabled=south;
 	document.getElementById("westBtn").disabled=west;
 }
-/*
-function take() {
-	var message = "Item Taken!";
-	
-	if (currentLocation ===  && pendant) {
-		pendant = false;
-		player.inventory.push(" | Pendant | ");
-		showInfoMessage(message);
-		unlockStatue1 = true;
-	} else if (currentLocation === "templePyramidEastRoom" && amulet) {
-		amulet = false;
-		player.inventory.push(" | Amulet | ");
-		showInfoMessage(message);
-		unlockStatue2 = true;
-	} else if (currentLocation === "templePyramidThrone" && ancientStaff) {
-		ancientStaff = false;
-		player.inventory.push(" | Ancient Staff of Abbubakar | ");
-		showInfoMessage(message);
-		unlockStatue3 = true;
-	} 
-}
-*/
 
 function take(currentLocation) {
 	if (locations[currentLocation].item !=0) {
