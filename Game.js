@@ -7,6 +7,7 @@
 //initialization variables
 var currentLocation = 0;
 var init = true;
+var score = 0;
 
 var inventory = [];
 var breadcrumbTrail = [];
@@ -21,7 +22,6 @@ var pendant = true;
 var amulet = true;
 var ancientStaff = true;
 
-var score = 0;
 
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
@@ -35,9 +35,16 @@ function showInfoMessage(descrip) {
 	document.getElementById("infoMessages").innerHTML = descrip;
 }
 
+var player = {
+	currentLocation: "beach",
+	pointsEarned: score,
+	inventory: [],
+	breadcrumbTrail: []
+};
+
 function North() {
 	var message = "You can not go north this way! Try a different direction.";
-	breadcrumbTrail.push("North ");
+	player.breadcrumbTrail.push("North ");
 
 	switch (currentLocation) {
 		case 0:
@@ -68,7 +75,7 @@ function North() {
 
 function East() {
 	var message = "You can not head east here! Try a different direction.";
-	breadcrumbTrail.push("East");
+	player.breadcrumbTrail.push("East");
 
 	switch(currentLocation) {
 		case 1:
@@ -96,7 +103,7 @@ function East() {
 
 function South() {
 	var message = "You can't go south here. Try a different direction.";
-	breadcrumbTrail.push("South ");	
+	player.breadcrumbTrail.push("South ");	
 
 	switch (currentLocation) {
 		case 1:
@@ -127,7 +134,7 @@ function South() {
 
 function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
-	breadcrumbTrail.push("West ");
+	player.breadcrumbTrail.push("West ");
 
 	switch (currentLocation) {
 		case 2:
@@ -193,17 +200,17 @@ function take() {
 	
 	if (currentLocation === "templeTomb" && pendant) {
 		pendant = false;
-		inventory.push(" | Pendant | ");
+		player.inventory.push(" | Pendant | ");
 		showInfoMessage(message);
 		unlockStatue1 = true;
 	} else if (currentLocation === "templePyramidEastRoom" && amulet) {
 		amulet = false;
-		inventory.push(" | Amulet | ");
+		player.inventory.push(" | Amulet | ");
 		showInfoMessage(message);
 		unlockStatue2 = true;
 	} else if (currentLocation === "templePyramidThrone" && ancientStaff) {
 		ancientStaff = false;
-		inventory.push(" | Ancient Staff of Abbubakar | ");
+		player.inventory.push(" | Ancient Staff of Abbubakar | ");
 		showInfoMessage(message);
 		unlockStatue3 = true;
 	} 
@@ -211,16 +218,16 @@ function take() {
 
 function showInventory() {
 	var playerInventory = "";
-	for (i=0; i < inventory.length; i++) {
-		playerInventory = playerInventory + inventory[i];
+	for (i=0; i < player.inventory.length; i++) {
+		playerInventory = playerInventory + player.inventory[i];
 	}
 	showInfoMessage(playerInventory);
 }
 
 function moveHistory() {
 	var breadcrumb = "";
-	for (i=0; i < breadcrumbTrail.length; i++) {
-		breadcrumb = breadcrumb + breadcrumbTrail[i];
+	for (i=0; i < player.breadcrumbTrail.length; i++) {
+		breadcrumb = breadcrumb + player.breadcrumbTrail[i];
 	}	
 	showInfoMessage(breadcrumb);
 }

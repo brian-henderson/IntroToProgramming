@@ -52,8 +52,7 @@ function goToJungleClearing() {
 	currentLocation = 6;
 	showMessage(locations[6].description);
 	updateScore(locations[6]);
-	disableWest();
-	disableSouth();
+
 	disable(false, false, true, true);
 }
 
@@ -74,13 +73,13 @@ function goToTempleCourtyard() {
 	currentLocation = 8;
 	showMessage(locations[8].description);
 	updateScore(locations[8]);
+	disable(false, false, false, false);
 }
 
 function goToTemplePyramid() {
 	currentLocation = 11;
 	showMessage(locations[11].description);
 	updateScore(locations[11]);
-	disableWest();
 	disabele(false, false, false, true);	
 }
 
@@ -98,9 +97,9 @@ function goToTempleStatue() {
 	if (unlockStatue1 && unlockStatue2 && unlockStatue3) {
 		showMessage(message);
 		disable(true, true, true, true);
-	} else if (scoreTempleStatue === true) {
-		showMessage(locations[1].description);
-		updateScore(locations[1]);
+	} else {
+		showMessage(locations[10].description);
+		updateScore(locations[10]);
 		disable(true, true, true, false);
 	}
 }
@@ -136,7 +135,7 @@ var clearing = new GameLocation ("clearing", "You have reached a clearing in the
 var templeEntrance = new GameLocation ("templeEntrance", "You have reached the ancient ruins of the Temple of Aboubaker! Head north to the courtyard.", 0);
 var templeCourtyard = new GameLocation ("templeCourtyard", "You are in a courtyard and notice three structures. A pyramid to the north, a large statue to the east and a tomb to the west. Investigate.", 0);
 var templeTomb = new GameLocation ("tomb", "Your in the temples crypt. You look around and find a cross shaped pendant in one of the tombs. You should take it as it could be usefull later on", "pendant");
-var templeStatue = new GameLocation ("templeStatue", "This statue is oddd. It has a spot on the back for three items.", 0);
+var templeStatue = new GameLocation ("templeStatue", "This statue is odd. It has a spot on the back for three items.", 0);
 var templePyramid = new GameLocation ("templePyramid", "You have entered the pyramid structure! Time to explore! Who knows what you might find!", 0);
 var templePyramidEastRoom = new GameLocation ("templePyramidEastRoom", "After exploring in the pyramid, you have come across a room with a chest in it. After opening the chest, you have found a circulaur amulet. Might be wise to take it.", "amulet");
 var templePyramidThrone = new GameLocation ("templePyramidThrone", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", "ancientStaff");
