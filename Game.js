@@ -28,9 +28,13 @@ function Item(name, description) {
 	this.description = description;
 }
 
-var pendant = new Item("pendant", "A shiny, cross shaped pendant.");
-var amulet = new Item("amulet", "A jeweled circulaur amulet.");
-var ancientStaff = new Item("ancient staff", "The Ancient Staff of the Great King Abbubakar!");
+Item.prototype.toString = function () {
+	return "The " + this.name + "is " + this.description;
+}
+
+var pendant = new Item("pendant  ", "A shiny, cross shaped pendant.");
+var amulet = new Item("amulet  ", "A jeweled circulaur amulet.");
+var ancientStaff = new Item("ancient staff  ", "The Ancient Staff of the Great King Abbubakar!");
 
 function showMessage(descrip) {
 	document.getElementById("message").innerHTML = descrip;
@@ -185,7 +189,7 @@ function directionInput(direction) {
 	} else if (direction === "W" || direction ==="w") {
 		West();
 	} else if (direction === "T" || direction ==="t") {
-		take();
+		take(currentLocation);
 	} else if (direction === "I" || direction ==="i") {
 		showInventory();
 	} else if (direction === "P" || direction ==="p") {
@@ -205,11 +209,11 @@ function disable(north, east, south, west){
 	document.getElementById("southBtn").disabled=south;
 	document.getElementById("westBtn").disabled=west;
 }
-
+/*
 function take() {
 	var message = "Item Taken!";
 	
-	if (currentLocation === "templeTomb" && pendant) {
+	if (currentLocation ===  && pendant) {
 		pendant = false;
 		player.inventory.push(" | Pendant | ");
 		showInfoMessage(message);
@@ -225,6 +229,15 @@ function take() {
 		showInfoMessage(message);
 		unlockStatue3 = true;
 	} 
+}
+*/
+
+function take(currentLocation) {
+	if (locations[currentLocation].item !=0) {
+		player.inventory.push(locations[currentLocation].item.name);
+		showInfoMessage("Item Taken!");
+		locations[currentLocation].item = 0;
+	}
 }
 
 function showInventory() {
