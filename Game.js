@@ -1,22 +1,15 @@
 /* Brian Henderson
-   November 24, 2015
-   Project 5
+   December 11, 2015
+   Version 1.0
    CMPT 120L 
 */
 
 //initialization variables
 var currentLocation = 0;
 var init = true;
-var score = 0;
 
 var inventory = [];
 var breadcrumbTrail = [];
-
-//item variables
-var itemPendant = true;
-var itemAmulet = true;
-var itemAncientStaff = true;
-
 
 function Item(name, description) {
 	this.name = name;
@@ -44,8 +37,8 @@ function showInfoMessage(descrip) {
 }
 
 var player = {
-	currentLocation: "beach",
-	pointsEarned: score,
+	currentLocation: 0,
+	pointsEarned: 0,
 	inventory: [],
 	breadcrumbTrail: []
 };
@@ -54,7 +47,7 @@ function North() {
 	var message = "You can not go north this way! Try a different direction.";
 	player.breadcrumbTrail.push("North ");
 
-	switch (currentLocation) {
+	switch (player.currentLocation) {
 		case 0:
 			goToJungle();
 			break;
@@ -85,7 +78,7 @@ function East() {
 	var message = "You can not head east here! Try a different direction.";
 	player.breadcrumbTrail.push("East");
 
-	switch(currentLocation) {
+	switch(player.currentLocation) {
 		case 1:
 			goToCliff();
 			break;
@@ -113,7 +106,7 @@ function South() {
 	var message = "You can't go south here. Try a different direction.";
 	player.breadcrumbTrail.push("South ");	
 
-	switch (currentLocation) {
+	switch (player.currentLocation) {
 		case 1:
 			goToBeach();
 			break;
@@ -144,7 +137,7 @@ function West() {
 	var message = "Hrmm. Looks like going west is not an option. Try another direction.";
 	player.breadcrumbTrail.push("West ");
 
-	switch (currentLocation) {
+	switch (player.currentLocation) {
 		case 2:
 			goToJungle();
 			break;
@@ -184,7 +177,7 @@ function directionInput(direction) {
 	} else if (direction === "W" || direction ==="w") {
 		West();
 	} else if (direction === "T" || direction ==="t") {
-		take(currentLocation);
+		take(player.currentLocation);
 	} else if (direction === "I" || direction ==="i") {
 		showInventory();
 	} else if (direction === "P" || direction ==="p") {
@@ -192,13 +185,13 @@ function directionInput(direction) {
 	} else if (direction === "H" || direction ==="h") {
 		displayHelp();
 	} else if (direction === "X" || direction ==="x") {
-		examine(currentLocation);									
+		examine(player.currentLocation);									
 	} else {
 		showMessage(message);
 	}
 }
 
-function disable(north, east, south, west){
+function disable(north, west, south, east){
 	document.getElementById("northBtn").disabled=north;
 	document.getElementById("eastBtn").disabled=east;
 	document.getElementById("southBtn").disabled=south;
@@ -236,9 +229,9 @@ function displayHelp() {
 
 function updateScore(location){
 if (location.visited === true) {
-		score += 5;
+		player.pointsEarned += 5;
 		location.visited = false;
-		showScore(score);
+		showScore(player.pointsEarned);
 	}
 }
 
@@ -249,8 +242,3 @@ function examine(currentLocation){
 	showInfoMessage("Nothing to be found here.");
 	}
 }
-
-
-
-
-

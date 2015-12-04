@@ -1,11 +1,11 @@
 /* Brian Henderson
-   November 24, 2015
-   Project 5
+   December 11, 2015
+   Version 1.0
    CMPT 120L 
 */
 
 function goToBeach() {
-	currentLocation = 0;
+	player.currentLocation = 0;
 		if (init === true) {
 			message = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
 			 		  "have finally found the island where the lost temple and treasure of the Great King " + 
@@ -21,35 +21,35 @@ function goToBeach() {
 }
 
 function goToJungle() {
-	currentLocation = 1;
+	player.currentLocation = 1;
 	showMessage(locations[1].description);
 	updateScore(locations[1]);
-	disable(true, false, false, true);		
+	disable(true, false, true, false);		
 }
 
 function goToCliff() {
-	currentLocation = 2;
+	player.currentLocation = 2;
 	showMessage(locations[2].description);
 	updateScore(locations[2]);
-	disable(false, false, false, true);
+	disable(false, true, false, true);
 }
 
 function goToCliffBridge() {
-	currentLocation = 3;
+	player.currentLocation = 3;
 	showMessage(locations[3].description);
 	updateScore(locations[3]);
-	disable(true, false, false, true);	
+	disable(true, false, true, false);	
 }
 
 function goToArchway() {
-	currentLocation = 4;
+	player.currentLocation = 4;
 	showMessage(locations[4].description);
 	updateScore(locations[4]);
-	disable(false, true, false, false);
+	disable(false, false, false, true);
 }
 
 function goToJungleClearing() {
-	currentLocation = 6;
+	player.currentLocation = 6;
 	showMessage(locations[6].description);
 	updateScore(locations[6]);
 
@@ -57,41 +57,41 @@ function goToJungleClearing() {
 }
 
 function goToJungleDeadEnd() {
-	currentLocation = 5;
+	player.currentLocation = 5;
 	showMessage(locations[5].description);
-	disable(false, false, true, false);	
+	disable(true, true, false, true);	
 }
 
 function goToTempleEntrance() {
-	currentLocation = 7;
+	player.currentLocation = 7;
 	showMessage(locations[7].description);
 	updateScore(locations[7]);
-	disable(false, true, true, false);
+	disable(true, true, false, false);
 }
 
 function goToTempleCourtyard() {
-	currentLocation = 8;
+	player.currentLocation = 8;
 	showMessage(locations[8].description);
 	updateScore(locations[8]);
 	disable(false, false, false, false);
 }
 
 function goToTemplePyramid() {
-	currentLocation = 11;
+	player.currentLocation = 11;
 	showMessage(locations[11].description);
 	updateScore(locations[11]);
-	disable(false, false, false, true);	
+	disable(false, false, true, false);	
 }
 
 function goToTemplePyramidThrone() {
-	currentLocation = 13;
+	player.currentLocation = 13;
 	showMessage(locations[13].description);
 	updateScore(locations[13]);
-	disable(true, true, false, true);
+	disable(true, false, true, true);
 }
 
 function goToTempleStatue() {
-	currentLocation = 10;
+	player.currentLocation = 10;
 	var winMessage = "You have come back to the statue and with the items you have, you have the keys to gain access to the Secret Underground Temple! BUT you don't have the knowledge to go anyfurther. Maybe next time you will finally find out what is beneath the temple. Thanks for playing!";
 
 	if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
@@ -100,19 +100,19 @@ function goToTempleStatue() {
 	} else {
 		showMessage(locations[10].description);
 		updateScore(locations[10]);
-		disable(true, true, true, false);	
+		disable(true, true, false, true);	
 	}
 }
 
 function goToTempleTomb() {
-	currentLocation = 9;
+	player.currentLocation = 9;
 	showMessage(locations[9].description);
 	updateScore(locations[9]);
-	disable(true, false, true, true);
+	disable(true, true, true, false);
 }
 
 function goToTemplePyramidEastRoom() {
-	currentLocation = 12;
+	player.currentLocation = 12;
 	showMessage(locations[12].description);
 	updateScore(locations[12]);
 	disable(true, true, true, false);	
@@ -147,10 +147,3 @@ var templePyramidThrone = new GameLocation ("templePyramidThrone", "You have ent
 var locations = [beachShore, jungle, cliff, bridge, archway, deadEnd, clearing,
 				 templeEntrance, templeCourtyard, templeTomb, templeStatue, 
 				 templePyramid, templePyramidEastRoom, templePyramidThrone]
-
-
-
-
-
-
-

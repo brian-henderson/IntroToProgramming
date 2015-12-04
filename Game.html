@@ -1,9 +1,9 @@
 <!doctype html>
 
 <!-- Brian Henderson
-	 November 24 2015
-	 Project 4
-	 CMPT 120L -->
+   	 December 11, 2015
+     Version 1.0
+     CMPT 120L -->
 
 <html>
 <head>
@@ -31,17 +31,17 @@
 		">GO!</button>
 		<br>	
 		<br>
-	<button id="northBtn" onclick="North();">North</button>		
-	<button id="eastBtn" onclick="East();">East</button>		
-	<button id="southBtn" onclick="South();">South</button>
-	<button id="westBtn" onclick="West();">West</button>
+	<button id="northBtn" onclick="North();">North</button>	<br>	
+	<button id="eastBtn" onclick="West();">West</button>		
+	<button id="southBtn" onclick="East();">East</button> <br>
+	<button id="westBtn" onclick="South();">South</button>
 		<br>
 		<br>
-	<button onclick="take(currentLocation);">Take Item</button>
+	<button onclick="take(player.currentLocation);">Take Item</button>
 	<button onclick="showInventory();">Inventory</button>
 	<button onclick="moveHistory();">Move History</button>
 	<button onclick="displayHelp();">Help</button>
-	<button onclick="examine(currentLocation);"> Examine </button>
+	<button onclick="examine(player.currentLocation);"> Examine </button>
 		<br>	
 		<br>
 	<button onclick="Reload();">Restart</button>	
