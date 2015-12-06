@@ -117,18 +117,18 @@ function goToTemplePyramidEastRoom() {
 	updateScore(locations[12]);
 	disable(true, true, true, false);	
 }
-
+/*
 function GameLocation(name, description, item) {
 	this.name = name;
 	this.description = description;
 	this.item = item;
 	this.visited = true;
 }
-
+*/
 GameLocation.prototype.toString = function () {
 	return "You are at" + this.name + ".";
 }
-
+/*
 var beachShore = new GameLocation("beach", "You are on the beach where you started.", 0);
 var jungle = new GameLocation("jungle", "You have reached the jungle. After traveling for a few miles, maybe change directions.", 0);
 var cliff = new GameLocation("cliff", "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north.", 0);
@@ -147,3 +147,5 @@ var templePyramidThrone = new GameLocation ("templePyramidThrone", "You have ent
 var locations = [beachShore, jungle, cliff, bridge, archway, deadEnd, clearing,
 				 templeEntrance, templeCourtyard, templeTomb, templeStatue, 
 				 templePyramid, templePyramidEastRoom, templePyramidThrone]
+
+*/
