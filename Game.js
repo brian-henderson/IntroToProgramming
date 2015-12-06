@@ -37,7 +37,7 @@ function showInfoMessage(descrip) {
 }
 
 var player = {
-	currentLocation: 0,
+	currentLocation: locations[0],
 	pointsEarned: 0,
 	inventory: [],
 	breadcrumbTrail: []

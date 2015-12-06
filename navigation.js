@@ -6,6 +6,13 @@
 
 // WILL REPLACE locations.js WITH THIS FILE
 
+"use strict";
+
+const NORTH =0;
+const EAST = 1;
+const SOUTH = 2;
+const WEST = 3;
+
 function GameLocation(name, description, item) {
 	this.name = name;
 	this.description = description;
@@ -28,4 +35,58 @@ var locations = [
 	new GameLocation ("templePyramid", "You have entered the pyramid structure! Time to explore! Who knows what you might find!", 0),
 	new GameLocation ("templePyramidEastRoom", "After exploring in the pyramid, you have come across this bare room with a chest in it.", amulet),
 	new GameLocation ("templePyramidThrone", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff)
-]
+];
+
+var navigation = {
+// 	  NORTH   EAST  SOUTH   WEST
+	[ locations[1], null, null, null ],
+	[ null, locations[2], locations[0], null ],
+	[ locations[3], null, null, locations[1] ],
+	[ null,locations[4], locations[2], null ],
+	[ locations[5], null, locations[6], locations[3] ,
+	[ null, null, locations[4], null ],
+	[ locations[4], locations[7], null, null ],
+	[ locations[8], null, null, locations[6] ],
+	[ locations[11], locations[10], locations[7], locations[9] ],
+	[ null, locations[8], null, null ],
+	[ null, null, null, locations[8] ],
+	[ locations[13], locations[12], locations[8], null ],
+	[ null, null, null, locations[11] ],
+	[ null, null, locations[11], null ]
+};
+
+function dirToStr(dir) {
+    switch (dir) {
+        case NORTH: return "North"; break;
+        case SOUTH: return "South"; break;
+        case EAST: return "East";   break;
+        case WEST: return "West";   break;
+        default: return "Invalid";  break;      
+    }
+}
+
+function from(loc, dir) {
+    var locId = locations.indexOf(loc);
+    return navigation[locId][dir];
+}
+
+function move(dir) {
+    var nextLocation = from(player.currentLocation, dir); /* TODO Use the function above to get the destination. */
+    
+    if (nextLocation != null) {
+        player.currentLocation = nextLocation;
+        showMessage(player.currentLocation.description);
+		updateScore(player.currentLocation); 
+    } else {
+        alert("You cannot go " + dirToStr(dir));
+    }
+}
+
+
+
+
+
+
+
+
+

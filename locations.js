@@ -5,7 +5,6 @@
 */
 
 function goToBeach() {
-	player.currentLocation = 0;
 		if (init === true) {
 			message = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
 			 		  "have finally found the island where the lost temple and treasure of the Great King " + 
