@@ -37,13 +37,13 @@ var locations = [
 	new GameLocation ("templePyramidThrone", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff)
 ];
 
-var navigation = {
+var navigation = [
 // 	  NORTH   EAST  SOUTH   WEST
 	[ locations[1], null, null, null ],
 	[ null, locations[2], locations[0], null ],
 	[ locations[3], null, null, locations[1] ],
 	[ null,locations[4], locations[2], null ],
-	[ locations[5], null, locations[6], locations[3] ,
+	[ locations[5], null, locations[6], locations[3] ] ,
 	[ null, null, locations[4], null ],
 	[ locations[4], locations[7], null, null ],
 	[ locations[8], null, null, locations[6] ],
@@ -53,7 +53,7 @@ var navigation = {
 	[ locations[13], locations[12], locations[8], null ],
 	[ null, null, null, locations[11] ],
 	[ null, null, locations[11], null ]
-};
+];
 
 function dirToStr(dir) {
     switch (dir) {
@@ -65,28 +65,65 @@ function dirToStr(dir) {
     }
 }
 
+function processTextCommand() {
+    var cmd = document.getElementById("command").value;
+    switch (cmd.toUpperCase()) {
+    case "N": move(NORTH);
+    case "S": move(SOUTH);
+    case "E": move(EAST);
+    case "W": move(WEST);
+    }
+}
+
 function from(loc, dir) {
     var locId = locations.indexOf(loc);
     return navigation[locId][dir];
 }
 
 function move(dir) {
+    enableBtns();
     var nextLocation = from(player.currentLocation, dir); /* TODO Use the function above to get the destination. */
     
+
     if (nextLocation != null) {
         player.currentLocation = nextLocation;
         showMessage(player.currentLocation.description);
-		updateScore(player.currentLocation); 
+		updateScore(player.currentLocation);
+		disableBtns(nextLocation); 
     } else {
         alert("You cannot go " + dirToStr(dir));
     }
 }
 
+function startGame() {
+	var startingMessage = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
+			 		      "have finally found the island where the lost temple and treasure of the Great King " + 
+			  		      "Aboubaker is. There is much to explore on this island, you can try walking the coast but " +
+			  		      "it might be better to check out the jungle and explore the mysterys that lie ahead! ";
+	
+	//player.currentLocation = locations[0];
+	showMessage(startingMessage);
+}
 
+window.onload = startGame();
 
+function disableBtns(loc) {
+	if(from(loc, NORTH) === null) {
+		document.getElementById("northBtn").disabled=true;
+	} if (from(loc, EAST) === null) {
+		document.getElementById("eastBtn").disabled=true;
+	} if (from(loc, SOUTH) === null) {
+		document.getElementById("southBtn").disabled=true;
+	} if (from(loc, WEST) === null) {
+		document.getElementById("westBtn").disabled=true;
+	}
+}
 
-
-
-
+function enableBtns() {
+	document.getElementById("northBtn").disabled=false;
+	document.getElementById("eastBtn").disabled=false;
+	document.getElementById("southBtn").disabled=false;
+	document.getElementById("westBtn").disabled=false;
+}
 
 

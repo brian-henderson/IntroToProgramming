@@ -9,14 +9,13 @@
 <head>
 	<title> The Lost Temple of Aboubaker</title>
 	<meta charset="utf-8"/>
-	
-	<script src="Game.js" type="text/javascript"></script>
-	<script src="locations.js" type="text/javascript"></script>
+
 	<script src="navigation.js" type="text/javascript"></script>
+	<script src="Game.js" type="text/javascript"></script>
 	<link href="Game.css" type="text/css" rel="stylesheet"/>	  
 
 </head>
-<body onload="goToBeach();">
+<body>
 	<img src="GameTitle.png" alt="Lost Temple of Abbubaker">
 	<p id="scoreDisplay"> Score </p>
 	<div id="score">0</div> 
@@ -26,16 +25,13 @@
 	<div id="infoMessages"></div>
 		<br>	
 	Enter a Direction: <input id="command" type="text">
-		<button onclick="
-			var userInput = document.getElementById('command').value;
-			directionInput(userInput);
-		">GO!</button>
+		<button onclick="processTextCommand();">GO!</button>
 		<br>	
 		<br>
-	<button id="northBtn" onclick="North();">North</button>	<br>	
-	<button id="eastBtn" onclick="West();">West</button>		
-	<button id="southBtn" onclick="East();">East</button> <br>
-	<button id="westBtn" onclick="South();">South</button>
+	<button id="northBtn" onclick="move(NORTH)">North</button>	<br>	
+	<button id="westBtn" onclick="move(WEST)">West</button>		
+	<button id="eastBtn" onclick="move(EAST)">East</button> <br>
+	<button id="southBtn" onclick="move(SOUTH)">South</button>
 		<br>
 		<br>
 	<button onclick="take(player.currentLocation);">Take Item</button>

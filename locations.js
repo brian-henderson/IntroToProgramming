@@ -4,6 +4,7 @@
    CMPT 120L 
 */
 
+/*
 function goToBeach() {
 		if (init === true) {
 			message = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
@@ -123,11 +124,11 @@ function GameLocation(name, description, item) {
 	this.item = item;
 	this.visited = true;
 }
-*/
+
 GameLocation.prototype.toString = function () {
 	return "You are at" + this.name + ".";
 }
-/*
+
 var beachShore = new GameLocation("beach", "You are on the beach where you started.", 0);
 var jungle = new GameLocation("jungle", "You have reached the jungle. After traveling for a few miles, maybe change directions.", 0);
 var cliff = new GameLocation("cliff", "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north.", 0);
