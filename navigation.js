@@ -8,6 +8,24 @@
 
 "use strict";
 
+function Item(name, description) {
+	this.name = name;
+	this.description = description;
+}
+
+Item.prototype.toString = function () {
+	return "The " + this.name + "is " + this.description;
+}
+
+var pendant = new Item("pendant  ", "A shiny, cross shaped pendant.");
+var amulet = new Item("amulet  ", "A jeweled circulaur amulet.");
+var ancientStaff = new Item("ancient staff  ", "The Ancient Staff of the Great King Abbubakar!");
+
+
+
+
+
+
 const NORTH =0;
 const EAST = 1;
 const SOUTH = 2;
@@ -87,7 +105,7 @@ function move(dir) {
 
     if (nextLocation != null) {
         player.currentLocation = nextLocation;
-        showMessage(player.currentLocation.description);
+        showScene(player.currentLocation.description);
 		updateScore(player.currentLocation);
 		disableBtns(nextLocation); 
     } else {
@@ -101,8 +119,8 @@ function startGame() {
 			  		      "Aboubaker is. There is much to explore on this island, you can try walking the coast but " +
 			  		      "it might be better to check out the jungle and explore the mysterys that lie ahead! ";
 	
-	//player.currentLocation = locations[0];
-	showMessage(startingMessage);
+	player.currentLocation = locations[0];
+	showScene(startingMessage);
 }
 
 window.onload = startGame();
@@ -125,5 +143,12 @@ function enableBtns() {
 	document.getElementById("southBtn").disabled=false;
 	document.getElementById("westBtn").disabled=false;
 }
+
+function showScene(loc) {
+    document.querySelector("#scene p").innerHTML = loc;
+}
+
+
+
 
 
