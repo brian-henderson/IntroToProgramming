@@ -102,6 +102,7 @@ function startGame() {
 	
 	player.currentLocation = locations[0];
 	showScene(startingMessage);
+	disableBtns(player.currentLocation);
 }
 
 window.onload = startGame;
