@@ -79,7 +79,6 @@ function from(loc, dir) {
 }
 
 function move(dir) {
-    enableBtns();
     var nextLocation = from(player.currentLocation, dir); /* TODO Use the function above to get the destination. */
     
 
@@ -109,6 +108,8 @@ function startGame() {
 window.onload = startGame;
 
 function disableBtns(loc) {
+	enableBtns();
+
 	if (from(loc, NORTH) === null) {
 		document.getElementById("northBtn").disabled=true;
 	} if (from(loc, EAST) === null) {
