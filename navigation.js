@@ -104,12 +104,13 @@ function move(dir) {
     
 
     if (nextLocation != null) {
-        player.currentLocation = nextLocation;
-        showScene(player.currentLocation.description);
-		updateScore(player.currentLocation);
-		disableBtns(nextLocation); 
+        player.currentLocation = nextLocation; //sets the players location to the next location selected
+        showScene(player.currentLocation.description); //displayes locations description
+		updateScore(player.currentLocation); //updates score
+		disableBtns(nextLocation); //disables buttons
+		showInfoMessage(""); //resets info message 
     } else {
-        alert("You cannot go " + dirToStr(dir));
+        showInfoMessage("You cannot go " + dirToStr(dir)); //displays an nfomessage alerting player of invalid direction
     }
 }
 
@@ -123,10 +124,10 @@ function startGame() {
 	showScene(startingMessage);
 }
 
-window.onload = startGame();
+window.onload = startGame;
 
 function disableBtns(loc) {
-	if(from(loc, NORTH) === null) {
+	if (from(loc, NORTH) === null) {
 		document.getElementById("northBtn").disabled=true;
 	} if (from(loc, EAST) === null) {
 		document.getElementById("eastBtn").disabled=true;
@@ -145,7 +146,7 @@ function enableBtns() {
 }
 
 function showScene(loc) {
-    document.querySelector("#scene p").innerHTML = loc;
+    document.querySelector("#scene p").innerHTML = loc; //function to update location message
 }
 
 
