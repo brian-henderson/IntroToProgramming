@@ -88,7 +88,8 @@ function move(dir) {
         showScene(player.currentLocation.description); //displayes locations description
 		updateScore(player.currentLocation); //updates score
 		disableBtns(nextLocation); //disables buttons
-		showInfoMessage(""); //resets info message 
+		showInfoMessage(""); //resets info message
+		showInventory(); 
     } else {
         showInfoMessage("You cannot go " + dirToStr(dir)); //displays an nfomessage alerting player of invalid direction
     }

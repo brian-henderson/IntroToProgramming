@@ -6,10 +6,8 @@
 
 "use strict";
 
-
-
 var inventory = [];
-var breadcrumbTrail = [];
+var breadcrumbTrail = []; //SHOULD BE REPLACED AND PUT IN PLAYER OBJECT
 
 function showScore(descrip) {
 	document.getElementById("score").innerHTML = descrip;
@@ -17,6 +15,10 @@ function showScore(descrip) {
 
 function showInfoMessage(descrip) {
 	document.getElementById("infoMessages").innerHTML = descrip;
+}
+
+function displayInventory(descrip) {
+	document.getElementById("inventory").innerHTML = descrip;
 }
 
 var player = {
@@ -32,16 +34,7 @@ function Reload() {
 /*
 function directionInput(direction) {
 	var message = "That's not a correct input! Please enter on of the following: N,n,E,e,S,s,W,w";
-	
-	if (direction === "N" || direction === "n") {
-		North();	
-	} else if (direction === "S" || direction ==="s"){
-		South();
-	} else if (direction === "E" || direction ==="e"){
-		East();
-	} else if (direction === "W" || direction ==="w") {
-		West();
-	} else if (direction === "T" || direction ==="t") {
+	if (direction === "T" || direction ==="t") {
 		take(player.currentLocation);
 	} else if (direction === "I" || direction ==="i") {
 		showInventory();
@@ -55,14 +48,8 @@ function directionInput(direction) {
 		showMessage(message);
 	}
 }
-
-function disable(north, west, south, east){
-	document.getElementById("northBtn").disabled=north;
-	document.getElementById("eastBtn").disabled=east;
-	document.getElementById("southBtn").disabled=south;
-	document.getElementById("westBtn").disabled=west;
-}
 */
+
 function take(currentLocation) {
 	if (locations[currentLocation].item !=0) {
 		player.inventory.push(locations[currentLocation].item.name);
@@ -73,14 +60,16 @@ function take(currentLocation) {
 
 function showInventory() {
 	var playerInventory = "";
+	var i;
 	for (i=0; i < player.inventory.length; i++) {
 		playerInventory = playerInventory + player.inventory[i];
 	}
-	showInfoMessage(playerInventory);
+	displayInventory(playerInventory);
 }
 
 function moveHistory() {
 	var breadcrumb = "";
+	var i;
 	for (i=0; i < player.breadcrumbTrail.length; i++) {
 		breadcrumb = breadcrumb + player.breadcrumbTrail[i];
 	}	
