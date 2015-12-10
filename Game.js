@@ -38,7 +38,7 @@ function showLocation(loc) {
 }
 
 function updateBackground(currentLocation) {
-	document.getElementById("scene").style.backgroundImage = "url('"+currentLocation.image+"')";
+	document.getElementById("scene").style.backgroundImage = "url('images/"+currentLocation.image+"')";
 }
 
 function showInventory() {
@@ -95,5 +95,5 @@ function updateDisplay(currentLocation) {
 	disableBtns(currentLocation); //disables buttons based on location
 	showInfoMessage(""); //resets info message
 	showInventory(); //displays player inventory
-	updateBackground(currentLocation);
+	updateBackground(currentLocation); //updates background image
 }
