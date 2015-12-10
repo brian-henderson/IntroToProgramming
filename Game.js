@@ -13,7 +13,6 @@ var player = {
 	breadcrumbTrail: []
 };
 
-
 function showScore(descrip) {
 	document.getElementById("score").innerHTML = descrip;
 }
@@ -36,6 +35,10 @@ function showScene(loc) {
 
 function showLocation(loc) {
 	document.getElementById("location").innerHTML = loc.name;
+}
+
+function updateBackground(currentLocation) {
+	document.getElementById("scene").style.backgroundImage = "url('"+currentLocation.image+"')";
 }
 
 function showInventory() {
@@ -87,9 +90,10 @@ function enableBtns() {
 
 function updateDisplay(currentLocation) {
 	showScene(currentLocation.description); //displayes locations description
-	showLocation(currentLocation);
+	showLocation(currentLocation); //displays current location
 	updateScore(currentLocation); //updates score
 	disableBtns(currentLocation); //disables buttons based on location
 	showInfoMessage(""); //resets info message
 	showInventory(); //displays player inventory
+	updateBackground(currentLocation);
 }

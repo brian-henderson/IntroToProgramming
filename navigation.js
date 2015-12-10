@@ -11,17 +11,17 @@ const EAST = 1;
 const SOUTH = 2;
 const WEST = 3;
 
-function GameLocation(name, description, item) {
+function GameLocation(name, description, item, image) {
 	this.name = name;
 	this.description = description;
 	this.item = item;
+	this.image = image;
 	this.visited = true;
-	this.image = name + ".jpg";
 }
 
 var locations = [
-	new GameLocation ("Beach", "You are on the beach where you started.", 0),
-	new GameLocation ("Jungle", "You have reached the jungle. After traveling for a few miles, maybe change directions.", 0),
+	new GameLocation ("Beach", "You are on the beach where you started.", 0, "island.jpg"),
+	new GameLocation ("Jungle", "You have reached the jungle. After traveling for a few miles, maybe change directions.", 0, "island.jpg"),
 	new GameLocation ("Cliff", "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north.", 0),
 	new GameLocation ("Bridge", "Ah you were right! You have reached an old rope bridge, but it looks old and dangerous. Looks like it is the only way cross the valley east though and might be worth taking a chance.", 0),
 	new GameLocation ("Archway", "Yay! You have safely crossed the bridge! There is a sign that points North and South, but you are unable to interprete the ancient symbols.", 0),
@@ -89,6 +89,7 @@ function startGame() {
 	player.currentLocation = locations[0];
 	showScene(startMsg);
 	disableBtns(player.currentLocation);
+	updateBackground(player.currentLocation);
 }
 
 window.onload = startGame;
