@@ -44,9 +44,10 @@ h2 {
     margin-top: 6em;
     padding: 2em;
     font-weight: bold;
+    opacity: .7;
 }
 
-#scene, #summary, #inventory {
+#summary, #inventory {
     padding: 1em;
     height: 28em;
     background-color: white;
@@ -62,6 +63,10 @@ h2 {
     border: 6px solid black;
     background-position: center center;
     background-size: 100%;
+    height: 28em;
+    background-color: white;
+    margin-bottom: 1em;
+    text-align: center; 
 }
 
 #controls {
@@ -74,6 +79,6 @@ input[type=text] {
 
 img {
 	width: 55%;
-	opacity: .7;
+	opacity: .8;
 	padding-bottom: 3px;
 }

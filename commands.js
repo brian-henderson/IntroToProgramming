@@ -5,17 +5,19 @@
 */
 
 function examine(currentLocation){
-	if (currentLocation.item !=0) {
+var message = "Nothing to be found here.";
+  if (currentLocation.item !=0) {
 		showInfoMessage("Oh you found something! " + currentLocation.item.description + " Take it! It could be useful.");
 	} else {
-	showInfoMessage("Nothing to be found here.");
+	showInfoMessage(message);
 	}
 }
 
 function take(currentLocation) {
-	if (currentLocation.item !=0) {
+var message ="Item Taken!";
+  if (currentLocation.item !=0) {
 		player.inventory.push(currentLocation.item.name);
-		showInfoMessage("Item Taken!");
+		showInfoMessage(message);
 		locations[currentLocation].item = 0;
 	}
 }
@@ -40,7 +42,7 @@ function processTextCommand() {
     case "H": displayHelp();
     case "X": examine(player.currentLocation);
     case "U": useKeys(player.currentLocation);
-    case "R": Reload();
+    //case "R": Reload();
     }
 } 
 
