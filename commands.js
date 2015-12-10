@@ -4,8 +4,6 @@
    CMPT 120L 
 */
 
-//FILE CONTAINS COMMANDS NOT RELATED TO NAVIGATION
-
 function examine(currentLocation){
 	if (locations[currentLocation].item !=0) {
 		showInfoMessage("Oh you found something! " + locations[currentLocation].item.description + " Take it! It could be useful.");

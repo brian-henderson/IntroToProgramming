@@ -4,7 +4,6 @@
    CMPT 120L 
 */
 
-
 function Item(name, description) {
 	this.name = name;
 	this.description = description;
