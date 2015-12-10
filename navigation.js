@@ -64,16 +64,6 @@ function dirToStr(dir) {
     }
 }
 
-function processTextCommand() {
-    var cmd = document.getElementById("command").value;
-    switch (cmd.toUpperCase()) {
-    case "N": move(NORTH);
-    case "S": move(SOUTH);
-    case "E": move(EAST);
-    case "W": move(WEST);
-    }
-}
-
 function from(loc, dir) {
     var locId = locations.indexOf(loc);
     return navigation[locId][dir];
@@ -91,7 +81,7 @@ function move(dir) {
 		showInfoMessage(""); //resets info message
 		showInventory(); 
     } else {
-        showInfoMessage("You cannot go " + dirToStr(dir)); //displays an nfomessage alerting player of invalid direction
+        showInfoMessage("You cannot go " + dirToStr(dir)); //displays an infomessage alerting player of invalid direction
     }
 }
 
@@ -107,33 +97,3 @@ function startGame() {
 }
 
 window.onload = startGame;
-
-function disableBtns(loc) {
-	enableBtns();
-
-	if (from(loc, NORTH) === null) {
-		document.getElementById("northBtn").disabled=true;
-	} if (from(loc, EAST) === null) {
-		document.getElementById("eastBtn").disabled=true;
-	} if (from(loc, SOUTH) === null) {
-		document.getElementById("southBtn").disabled=true;
-	} if (from(loc, WEST) === null) {
-		document.getElementById("westBtn").disabled=true;
-	}
-}
-
-function enableBtns() {
-	document.getElementById("northBtn").disabled=false;
-	document.getElementById("eastBtn").disabled=false;
-	document.getElementById("southBtn").disabled=false;
-	document.getElementById("westBtn").disabled=false;
-}
-
-function showScene(loc) {
-    document.querySelector("#scene p").innerHTML = loc; //function to update location message
-}
-
-
-
-
-
