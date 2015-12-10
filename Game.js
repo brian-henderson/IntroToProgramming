@@ -31,7 +31,7 @@ function showMoves(descrip) {
 }
 
 function showScene(loc) {
-    document.querySelector("#scene p").innerHTML = loc; //function to update location message
+    document.querySelector("#scene p").innerHTML = loc;
 }
 
 function showInventory() {
@@ -79,4 +79,12 @@ function enableBtns() {
 	document.getElementById("eastBtn").disabled=false;
 	document.getElementById("southBtn").disabled=false;
 	document.getElementById("westBtn").disabled=false;
+}
+
+function updateDisplay(currentLocation) {
+	showScene(currentLocation.description); //displayes locations description
+	updateScore(currentLocation); //updates score
+	disableBtns(currentLocation); //disables buttons based on location
+	showInfoMessage(""); //resets info message
+	showInventory(); //displays player inventory
 }

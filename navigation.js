@@ -75,11 +75,7 @@ function move(dir) {
 
     if (nextLocation != null) {
         player.currentLocation = nextLocation; //sets the players location to the next location selected
-        showScene(player.currentLocation.description); //displayes locations description
-		updateScore(player.currentLocation); //updates score
-		disableBtns(nextLocation); //disables buttons
-		showInfoMessage(""); //resets info message
-		showInventory(); 
+		updateDisplay(player.currentLocation); 
     } else {
         showInfoMessage("You cannot go " + dirToStr(dir)); //displays an infomessage alerting player of invalid direction
     }
