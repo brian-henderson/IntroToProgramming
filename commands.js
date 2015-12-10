@@ -18,7 +18,7 @@ var message ="Item Taken!";
   if (currentLocation.item !=0) {
 		player.inventory.push(currentLocation.item.name);
 		showInfoMessage(message);
-		locations[currentLocation].item = 0;
+		currentLocation.item = 0;
 	}
 }
 

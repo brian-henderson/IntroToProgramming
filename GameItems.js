@@ -13,7 +13,7 @@ Item.prototype.toString = function () {
 	return "The " + this.name + "is " + this.description;
 }
 
-var pendant = new Item("pendant  ", "A shiny, cross shaped pendant.");
-var amulet = new Item("amulet  ", "A jeweled circulaur amulet.");
-var ancientStaff = new Item("ancient staff  ", "The Ancient Staff of the Great King Abbubakar!");
-var missingMap = new Item("missing map piece ", "An ancient map that reveals the secret location under the statue.");
+var pendant = new Item("Pendant       ", "A shiny, cross shaped pendant.");
+var amulet = new Item("Amulet       ", "A jeweled circulaur amulet.");
+var ancientStaff = new Item("Ancient Staff     ", "The Ancient Staff of the Great King Abbubakar!");
+var missingMap = new Item("Missing Map Piece ", "An ancient map that reveals the secret location under the statue.");
