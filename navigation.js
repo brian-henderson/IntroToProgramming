@@ -33,7 +33,8 @@ var locations = [
 	new GameLocation ("Temple Statue", "This statue is odd. It has a spot on the back for three items.", 0, "templeStatue.jpg"),
 	new GameLocation ("Temple Pyramid", "You have entered the pyramid structure! Time to explore! Who knows what you might find!", 0),
 	new GameLocation ("Temple Pyramid East Room", "After exploring in the pyramid, you have come across this bare room with a chest in it.", amulet, "templeRoom.jpg"),
-	new GameLocation ("Temple Pyramid Throne", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff, "templeThrone.png")
+	new GameLocation ("Temple Pyramid Throne", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff, "templeThrone.png"),
+	new GameLocation ("Game Over", "You fell through the bridge and died. Try looking for something to cover the whole in the bridge.", 0)
 ];
 
 var navigation = [
@@ -41,7 +42,7 @@ var navigation = [
 	[ locations[1], null, null, null ],
 	[ null, locations[2], locations[0], null ],
 	[ locations[3], null, null, locations[1] ],
-	[ null,locations[4], locations[2], null ],
+	[ null,locations[14], locations[2], null ],
 	[ locations[5], null, locations[6], locations[3] ] ,
 	[ null, null, locations[4], null ],
 	[ locations[4], locations[7], null, null ],
@@ -74,6 +75,7 @@ function move(dir) {
 
     if (nextLocation != null) {
         player.currentLocation = nextLocation; //sets the players location to the next location selected
+		prevMoves(dir);
 		updateDisplay(player.currentLocation); 
     } else {
         showInfoMessage("You cannot go " + dirToStr(dir)); //displays an infomessage alerting player of invalid direction
@@ -93,3 +95,19 @@ function startGame() {
 }
 
 window.onload = startGame;
+
+
+function prevMoves (dir){
+	if (dir === NORTH) {
+		player.breadcrumbTrail.push("North ");
+	} else if (dir === EAST) {
+		player.breadcrumbTrail.push("East ");
+	} else if (dir === SOUTH) {
+		player.breadcrumbTrail.push("South ");
+	} else if (dir === WEST) {
+		player.breadcrumbTrail.push("West ");
+	} else {
+		player.breadcrumbTrail.push("ERROR ");
+	}
+}
+

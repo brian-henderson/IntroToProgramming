@@ -10,7 +10,7 @@ var player = {
 	currentLocation: [],
 	pointsEarned: 0,
 	inventory: [],
-	breadcrumbTrail: []
+	breadcrumbTrail: ["", "", "", "", ""]
 };
 
 function showScore(descrip) {
@@ -53,7 +53,7 @@ function showInventory() {
 function moveHistory() {
 	var breadcrumb = "";
 	var i;
-	for (i=0; i < player.breadcrumbTrail.length; i++) {
+	for (i=player.breadcrumbTrail.length-1; i > (player.breadcrumbTrail.length - 6); i--) {
 		breadcrumb = breadcrumb + player.breadcrumbTrail[i];
 	}	
 	showMoves(breadcrumb);
@@ -96,19 +96,19 @@ function updateDisplay(currentLocation) {
 	showInfoMessage(""); //resets info message
 	showInventory(); //displays player inventory
 	updateBackground(currentLocation); //updates background image
+	moveHistory();
 }
 
 function gameEnd () {
   var winMessage = "Congratulations! You have come back to the statue and with the items you have, you have the keys to gain access to the secret underground temple revealing the REAL King Abbubaker! Thanks for playing!";
-       
-        showScene(winMessage);
-        player.pointsEarned += 1000;
-        showScore(player.pointsEarned);
-       
-        document.getElementById("northBtn").disabled=true;
-        document.getElementById("eastBtn").disabled=true;
-        document.getElementById("southBtn").disabled=true;
-        document.getElementById("westBtn").disabled=true;
+    showScene(winMessage);
+    player.pointsEarned += 1000;
+    showScore(player.pointsEarned);
+
+    document.getElementById("northBtn").disabled=true;
+    document.getElementById("eastBtn").disabled=true;
+    document.getElementById("southBtn").disabled=true;
+    document.getElementById("westBtn").disabled=true;
 }
 
 

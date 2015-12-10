@@ -41,7 +41,7 @@ function processTextCommand() {
     case "T": take(player.currentLocation); break;
     case "H": displayHelp(); break;
     case "X": examine(player.currentLocation); break;
-    case "U": useKeys(player.currentLocation); break;
+    case "U": useItems(player.currentLocation); break;
     case "R": Reload(); break;
     }
 } 
@@ -60,14 +60,20 @@ function goToTempleStatue() {
   }
 }
 
-function useKeys(currentLocation) {
+function useItems(currentLocation) {
   var message ="You do not have an item to be used here.";
 
   if (currentLocation === locations[10]) {
       if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
           gameEnd();
+      }   
+  } else if (currentLocation === locations[3]) {
+      if (locations[0].item === 0) {
+        navigation[3][1] = locations[4];
+        showInfoMessage("You have made the bridge safe to cross!");
+        player.inventory = [];
       }
-  } else {
+  } else  {
     showInfoMessage(message);
   }
 }
