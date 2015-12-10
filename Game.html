@@ -18,35 +18,40 @@
 
 <body>
 	<header>
-		<img src="GameTitle.png" alt="Lost Temple of Abbubaker">
+		<img src="gameTitleGold.png" alt="Lost Temple of Abbubaker">
 	</header><aside>
 	<div id="summary">
-		<h2>Summary</h2>
-		<p><label>Score: </label><span id="score">0</span></p>
+		<h3>Summary</h2>
+			<p><label>Score: </label><span id="score">0</span></p>
+		<h3>Previous Moves</h3>
+			<p id="prevMoves">old moves here</p>
+		<h3>Location</h3>
+			<p id="location"> current location</p>	
+		<h3>Alert Message</h3>
+			<p><div id="infoMessages"></div></p>
 	</div>
 	<button onclick="displayHelp();">Help</button>
 	</aside> <main>
 	<div id="scene">
 		<p>Message should display here</p> 
 	</div>	
-	<div id="infoMessages"></div>
 		<br>
 		<div id="controls">
+			<div id="text/input">
+				<input id="command" type="text" maxLength="1" placeholder="   Enter a Command   "/>
+				<button onclick="processTextCommand();">GO!</button> 
+			</div> <br>
 			<div id="nav">
 				<button id="northBtn" onclick="move(NORTH)">North</button>	<br>	
 				<button id="westBtn" onclick="move(WEST)">West</button>		
 				<button id="eastBtn" onclick="move(EAST)">East</button> <br>
 				<button id="southBtn" onclick="move(SOUTH)">South</button>
 			</div>
-		<div id="text/input">
-			<input id="command" type="text" maxLength="1"
-			placeholder="Enter a Command"/>
-			<button onclick="processTextCommand();">GO!</button>
-		</div>
-	</div>		
+	</div><br>		
 </main><aside>
 	<div id="inventory">
 		<h2>Inventory</h2>
+		<p></p>
 	</div>
 	<button onclick="Reload();">Restart</button>	
 </aside>	
@@ -54,7 +59,7 @@
 	<img src="GameMapV.4.png" alt="Game Map">
 </body>
 
-<!--
+<!-- 
 	<button onclick="take(player.currentLocation);">Take Item</button>
 	<button onclick="showInventory();">Inventory</button>
 	<button onclick="moveHistory();">Move History</button>

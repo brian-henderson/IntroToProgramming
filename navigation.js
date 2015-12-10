@@ -16,6 +16,7 @@ function GameLocation(name, description, item) {
 	this.description = description;
 	this.item = item;
 	this.visited = true;
+	this.image = name + ".jpg";
 }
 
 var locations = [
@@ -95,13 +96,13 @@ function move(dir) {
 }
 
 function startGame() {
-	var startingMessage = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
+	var startMsg = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
 			 		      "have finally found the island where the lost temple and treasure of the Great King " + 
 			  		      "Aboubaker is. There is much to explore on this island, you can try walking the coast but " +
 			  		      "it might be better to check out the jungle and explore the mysterys that lie ahead! ";
 	
 	player.currentLocation = locations[0];
-	showScene(startingMessage);
+	showScene(startMsg);
 	disableBtns(player.currentLocation);
 }
 
