@@ -27,13 +27,13 @@ var locations = [
 	new GameLocation ("Archway", "Yay! You have safely crossed the bridge! There is a sign that points North and South, but you are unable to interprete the ancient symbols.", 0, "jungelIsland.jpg"),
 	new GameLocation ("DeadEnd", "You have reached a dead end as you are stopped by a waterfall. Try turning around.", 0, "jungle.jpg"),
 	new GameLocation ("Clearing", "You have reached a clearing in the jungle. You begin to loose hope after hours of searc...Wait. Whats that off to the east?", 0, "mountainVillage.jpg"),
-	new GameLocation ("TempleEntrance", "You have reached the ancient ruins of the Temple of Aboubaker! Head north to the courtyard.", 0, "templeEntrance.jpg"),
-	new GameLocation ("TempleCourtyard", "You are in a courtyard and notice three structures. A pyramid to the north, a large statue to the east and a tomb to the west. Investigate.", 0, "templeCourtyard.jpeg"),
+	new GameLocation ("Temple Entrance", "You have reached the ancient ruins of the Temple of Aboubaker! Head north to the courtyard.", 0, "templeEntrance.jpg"),
+	new GameLocation ("Temple Courtyard", "You are in a courtyard and notice three structures. A pyramid to the north, a large statue to the east and a tomb to the west. Investigate.", 0, "templeCourtyard.jpeg"),
 	new GameLocation ("Tomb", "Your in the temples crypt. As you are going down the stairs, your flashlight picked up a glare. Investigate!", pendant, "templeTomb.jpg"),
-	new GameLocation ("TempleStatue", "This statue is odd. It has a spot on the back for three items.", 0),
-	new GameLocation ("TemplePyramid", "You have entered the pyramid structure! Time to explore! Who knows what you might find!", 0),
-	new GameLocation ("TemplePyramidEastRoom", "After exploring in the pyramid, you have come across this bare room with a chest in it.", amulet, "templeRoom.jpg"),
-	new GameLocation ("TemplePyramidThrone", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff, "templeThrone.png")
+	new GameLocation ("Temple Statue", "This statue is odd. It has a spot on the back for three items.", 0),
+	new GameLocation ("Temple Pyramid", "You have entered the pyramid structure! Time to explore! Who knows what you might find!", missingMap),
+	new GameLocation ("Temple Pyramid East Room", "After exploring in the pyramid, you have come across this bare room with a chest in it.", amulet, "templeRoom.jpg"),
+	new GameLocation ("Temple Pyramid Throne", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff, "templeThrone.png")
 ];
 
 var navigation = [
