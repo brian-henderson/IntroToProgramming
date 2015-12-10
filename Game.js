@@ -34,6 +34,10 @@ function showScene(loc) {
     document.querySelector("#scene p").innerHTML = loc;
 }
 
+function showLocation(loc) {
+	document.getElementById("location").innerHTML = loc.name;
+}
+
 function showInventory() {
 	var playerInventory = "";
 	var i;
@@ -83,6 +87,7 @@ function enableBtns() {
 
 function updateDisplay(currentLocation) {
 	showScene(currentLocation.description); //displayes locations description
+	showLocation(currentLocation);
 	updateScore(currentLocation); //updates score
 	disableBtns(currentLocation); //disables buttons based on location
 	showInfoMessage(""); //resets info message
