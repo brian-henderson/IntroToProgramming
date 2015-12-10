@@ -34,15 +34,15 @@ function displayHelp() {
 function processTextCommand() {
     var cmd = document.getElementById("command").value;
     switch (cmd.toUpperCase()) {
-    case "N": move(NORTH);
-    case "S": move(SOUTH);
-    case "E": move(EAST);
-    case "W": move(WEST);
-    case "T": take(player.currentLocation);
-    case "H": displayHelp();
-    case "X": examine(player.currentLocation);
-    case "U": useKeys(player.currentLocation);
-    //case "R": Reload();
+    case "N": move(NORTH); break;
+    case "S": move(SOUTH); break;
+    case "E": move(EAST); break;
+    case "W": move(WEST); break;
+    case "T": take(player.currentLocation); break;
+    case "H": displayHelp(); break;
+    case "X": examine(player.currentLocation); break;
+    case "U": useKeys(player.currentLocation); break;
+    case "R": Reload(); break;
     }
 } 
 
