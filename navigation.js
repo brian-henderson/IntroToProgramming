@@ -71,7 +71,6 @@ function from(loc, dir) {
 
 function move(dir) {
     var nextLocation = from(player.currentLocation, dir); /* TODO Use the function above to get the destination. */
-    
 
     if (nextLocation != null) {
         player.currentLocation = nextLocation; //sets the players location to the next location selected
