@@ -93,7 +93,7 @@ function updateDisplay(currentLocation) {
 	showLocation(currentLocation); //displays current location
 	updateScore(currentLocation); //updates score
 	disableBtns(currentLocation); //disables buttons based on location
-	//showInfoMessage(""); //resets info message
+	showInfoMessage(""); //resets info message
 	showInventory(); //displays player inventory
 	updateBackground(currentLocation); //updates background image
 }
