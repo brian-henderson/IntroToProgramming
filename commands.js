@@ -25,7 +25,7 @@ function Reload() {
 }
 
 function displayHelp() {
-	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) I/i (Show Inventory) P/p (Move History) H/h (Help)";
+	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) X/x (Examine Current Location) H/h (Help)";
 	showInfoMessage(message);
 }
 
