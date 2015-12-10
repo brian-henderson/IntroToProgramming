@@ -20,7 +20,7 @@ function GameLocation(name, description, item, image) {
 }
 
 var locations = [
-	new GameLocation ("Beach", "You are on the beach where you started.", 0, "island.jpg"),
+	new GameLocation ("Beach", "You are on the beach where you started.", driftwood, "island.jpg"),
 	new GameLocation ("Jungle", "You have reached the jungle. After traveling for a few miles, maybe change directions.", 0, "jungle.jpg"),
 	new GameLocation ("Cliff", "Whoa! That was a close one! That cliff edge came out of no where! Looks like there might be a rope bridge a little north.", 0, "jungleWaterfall.jpg"),
 	new GameLocation ("Bridge", "Ah you were right! You have reached an old rope bridge, but it looks old and dangerous. Looks like it is the only way cross the valley east though and might be worth taking a chance.", 0),
