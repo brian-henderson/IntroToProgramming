@@ -5,16 +5,16 @@
 */
 
 function examine(currentLocation){
-	if (locations[currentLocation].item !=0) {
-		showInfoMessage("Oh you found something! " + locations[currentLocation].item.description + " Take it! It could be useful.");
+	if (currentLocation.item !=0) {
+		showInfoMessage("Oh you found something! " + currentLocation.item.description + " Take it! It could be useful.");
 	} else {
 	showInfoMessage("Nothing to be found here.");
 	}
 }
 
 function take(currentLocation) {
-	if (locations[currentLocation].item !=0) {
-		player.inventory.push(locations[currentLocation].item.name);
+	if (currentLocation.item !=0) {
+		player.inventory.push(currentLocation.item.name);
 		showInfoMessage("Item Taken!");
 		locations[currentLocation].item = 0;
 	}
@@ -59,13 +59,14 @@ function goToTempleStatue() {
 }
 
 function useKeys(currentLocation) {
-  
+  var message ="You do not have an item to be used here.";
+
   if (currentLocation === locations[10]) {
       if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
           gameEnd();
       }
   } else {
-    showInfoMessage("You do not have an item to be used here.");
+    showInfoMessage(message);
   }
 }
 
