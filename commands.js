@@ -25,7 +25,7 @@ function Reload() {
 }
 
 function displayHelp() {
-	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) X/x (Examine Current Location) H/h (Help)";
+	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) X/x (Examine Current Location) U/u (Use items) H/h (Help)";
 	showInfoMessage(message);
 }
 
@@ -39,6 +39,36 @@ function processTextCommand() {
     case "T": take(player.currentLocation);
     case "H": displayHelp();
     case "X": examine(player.currentLocation);
+    case "U": useKeys(player.currentLocation);
     case "R": Reload();
     }
 } 
+
+function goToTempleStatue() {
+  player.currentLocation = 10;
+  var winMessage = "You have come back to the statue and with the items you have, you have the keys to gain access to the Secret Underground Temple! BUT you don't have the knowledge to go anyfurther. Maybe next time you will finally find out what is beneath the temple. Thanks for playing!";
+
+  if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
+    showMessage(winMessage);
+    disable(true, true, true, true);
+  } else {
+    showMessage(locations[10].description);
+    updateScore(locations[10]);
+    disable(true, true, false, true); 
+  }
+}
+
+function useKeys(currentLocation) {
+  
+  if (currentLocation === locations[10]) {
+      if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
+          gameEnd();
+      }
+  } else {
+    showInfoMessage("You do not have an item to be used here.");
+  }
+}
+
+
+
+
