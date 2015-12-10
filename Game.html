@@ -8,50 +8,61 @@
 <html>
 <head>
 	<title> The Lost Temple of Aboubaker</title>
+	
 	<meta charset="utf-8"/>
-
 	<script src="Game.js" type="text/javascript"></script>
 	<script src="GameItems.js" type="text/javascript"></script>
 	<script src="navigation.js" type="text/javascript"></script>
 	<link href="Game.css" type="text/css" rel="stylesheet"/>	  
-
 </head>
+
 <body>
-	<img src="GameTitle.png" alt="Lost Temple of Abbubaker">
-	<p id="scoreDisplay"> Score </p>
-	<div id="score">0</div> 
-		<br>
-	<div id="inventory"></div>
+	<header>
+		<img src="GameTitle.png" alt="Lost Temple of Abbubaker">
+	</header><aside>
+	<div id="summary">
+		<h2>Summary</h2>
+		<p><label>Score: </label><span id="score">0</span></p>
+	</div>
+	<button onclick="displayHelp();">Help</button>
+	</aside> <main>
 	<div id="scene">
 		<p>Message should display here</p> 
 	</div>	
-		<br>
 	<div id="infoMessages"></div>
-		<br>	
-	Enter a Direction: <input id="command" type="text">
-		<button onclick="processTextCommand();">GO!</button>
-		<br>	
 		<br>
-	<button id="northBtn" onclick="move(NORTH)">North</button>	<br>	
-	<button id="westBtn" onclick="move(WEST)">West</button>		
-	<button id="eastBtn" onclick="move(EAST)">East</button> <br>
-	<button id="southBtn" onclick="move(SOUTH)">South</button>
-		<br>
-		<br>
+		<div id="controls">
+			<div id="nav">
+				<button id="northBtn" onclick="move(NORTH)">North</button>	<br>	
+				<button id="westBtn" onclick="move(WEST)">West</button>		
+				<button id="eastBtn" onclick="move(EAST)">East</button> <br>
+				<button id="southBtn" onclick="move(SOUTH)">South</button>
+			</div>
+		<div id="text/input">
+			<input id="command" type="text" maxLength="1"
+			placeholder="Enter a Command"/>
+			<button onclick="processTextCommand();">GO!</button>
+		</div>
+	</div>		
+</main><aside>
+	<div id="inventory">
+		<h2>Inventory</h2>
+	</div>
+	<button onclick="Reload();">Restart</button>	
+</aside>	
+	<a href="mailto:brian.henderson1@marist.edu"> Stuck? Send me an email!</a> </br>
+	<img src="GameMapV.4.png" alt="Game Map">
+</body>
+
+<!--
 	<button onclick="take(player.currentLocation);">Take Item</button>
 	<button onclick="showInventory();">Inventory</button>
 	<button onclick="moveHistory();">Move History</button>
 	<button onclick="displayHelp();">Help</button>
 	<button onclick="examine(player.currentLocation);"> Examine </button>
-		<br>	
-		<br>
-	<button onclick="Reload();">Restart</button>	
-		<br>
-		<br>	
-	<a href="mailto:brian.henderson1@marist.edu"> Stuck? Send me an email!</a>
-		<br>
-		<br>
-	<img src="GameMapV.4.png" alt="Game Map">
-</body>
+-->
 
 </html>	
+
+
+
