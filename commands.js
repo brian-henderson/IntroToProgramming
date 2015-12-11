@@ -27,7 +27,7 @@ function Reload() {
 }
 
 function displayHelp() {
-	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) X/x (Examine Current Location) U/u (Use items) H/h (Help)";
+	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) X/x (Examine Current Location) U/u (Use items) P/p (Pray for Help) H/h (Help)";
 	showInfoMessage(message);
 }
 
@@ -43,6 +43,7 @@ function processTextCommand() {
     case "X": examine(player.currentLocation); break;
     case "U": useItems(player.currentLocation); break;
     case "R": Reload(); break;
+    case "P": prayToAbbubaker(); break;
     }
 } 
 
@@ -80,6 +81,26 @@ function useItems(currentLocation) {
     showInfoMessage(message);
   }
 }
+
+function prayToAbbubaker() {
+  var riddle = prompt("You have prayed to the Great God of Abbubaker! If you seek guidance, you will need to answer my riddle. What is the difference between an old penny and a new quarter? (WARNING: you will lose 25 points for getting the answer right, but it will reveal important information.)");
+  
+  if (riddle.toUpperCase() === "24 CENTS"){
+    alert("Yahweh Abbubaker has pitied your prayers to him. In order to win you must find three objects(pendant, amulet, and an ancient staff) and bring them to the statue. Unlock the statue with these items to be glorious.");
+    player.pointsEarned -=25;
+  } else {
+    alert("You have failed the riddle. Pray and think harder!");
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 
