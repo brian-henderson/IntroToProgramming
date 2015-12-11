@@ -77,8 +77,14 @@ input[type=text] {
     width: 30ex;
 }
 
-img {
-	width: 55%;
+#mapImg {
+	width: 100%;
 	opacity: .8;
 	padding-bottom: 3px;
+}
+
+img {
+    width: 55%;
+    opacity: .8;
+    padding-bottom: 3px;
 }

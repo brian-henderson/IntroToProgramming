@@ -63,7 +63,7 @@ function goToTempleStatue() {
 function useItems(currentLocation) {
   var message ="You do not have an item to be used here.";
 
-  if (currentLocation === locations[10]) {
+  if (currentLocation === locations[10]) { 
       if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
           gameEnd();
       }   
@@ -73,6 +73,9 @@ function useItems(currentLocation) {
         showInfoMessage("You have made the bridge safe to cross!");
         player.inventory = [];
       }
+  } else if (locations[5].item === 0) {
+      document.getElementById("mapImg").style.backgroundImage = "url('secretMap.png')";
+      showInfoMessage("Your map is now complete! Check it out!");
   } else  {
     showInfoMessage(message);
   }
