@@ -98,15 +98,3 @@ function updateDisplay(currentLocation) {
 	updateBackground(currentLocation); //updates background image
 	moveHistory();
 }
-
-function gameEnd () {
-  var winMessage = "Congratulations! You have come back to the statue and with the items you have, you have the keys to gain access to the secret underground temple revealing the REAL King Abbubaker! Thanks for playing!";
-    showScene(winMessage);
-    player.pointsEarned += 1000;
-    showScore(player.pointsEarned);
-
-    document.getElementById("northBtn").disabled=true;
-    document.getElementById("eastBtn").disabled=true;
-    document.getElementById("southBtn").disabled=true;
-    document.getElementById("westBtn").disabled=true;
-}

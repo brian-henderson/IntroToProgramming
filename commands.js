@@ -19,7 +19,9 @@ var message ="Item Taken!";
 		player.inventory.push(currentLocation.item.name);
 		showInfoMessage(message);
 		currentLocation.item = 0;
-	}
+	} else {
+    showInfoMessage("No item here.");
+  }
 }
 
 function Reload() {
@@ -52,7 +54,10 @@ function useItems(currentLocation) {
 
   if (currentLocation === locations[10]) { 
       if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
-          gameEnd();
+          navigation[10][1] = locations[15];
+          player.pointsEarned += 1000;
+          updateDisplay(currentLocation);
+          showInfoMessage("You have unlocked the statue. GO EAST to the promised land!");
       }   
   } else if (currentLocation === locations[3]) {
       if (locations[0].item === 0) {
