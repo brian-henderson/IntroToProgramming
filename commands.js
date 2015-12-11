@@ -4,35 +4,6 @@
    CMPT 120L 
 */
 
-function examine(currentLocation){
-var message = "Nothing to be found here.";
-  if (currentLocation.item !=0) {
-		showInfoMessage("Oh you found something! " + currentLocation.item.description + " Take it! It could be useful.");
-	} else {
-	showInfoMessage(message);
-	}
-}
-
-function take(currentLocation) {
-var message ="Item Taken!";
-  if (currentLocation.item !=0) {
-		player.inventory.push(currentLocation.item.name);
-		showInfoMessage(message);
-		currentLocation.item = 0;
-	} else {
-    showInfoMessage("No item here.");
-  }
-}
-
-function Reload() {
-	location.reload();
-}
-
-function displayHelp() {
-	var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) X/x (Examine Current Location) U/u (Use items) P/p (Pray for Help) H/h (Help)";
-	showInfoMessage(message);
-}
-
 function processTextCommand() {
     var cmd = document.getElementById("command").value;
     switch (cmd.toUpperCase()) {
@@ -44,10 +15,35 @@ function processTextCommand() {
     case "H": displayHelp(); break;
     case "X": examine(player.currentLocation); break;
     case "U": useItems(player.currentLocation); break;
-    case "R": Reload(); break;
     case "P": prayToAbbubaker(); break;
+    case "R": Reload(); break;
     }
 } 
+
+function take(currentLocation) {
+var message ="Item Taken!";
+  if (currentLocation.item !=0) {
+    player.inventory.push(currentLocation.item.name);
+    showInfoMessage(message);
+    currentLocation.item = 0;
+  } else {
+    showInfoMessage("No item here.");
+  }
+}
+
+function displayHelp() {
+  var message = "Text Commands: N/n (North)  E/e (East) S/s (South) W/w (West) T/t (Take Item) X/x (Examine Current Location) U/u (Use items) P/p (Pray for Help) H/h (Help)";
+  showInfoMessage(message);
+}
+
+function examine(currentLocation){
+var message = "Nothing to be found here.";
+  if (currentLocation.item !=0) {
+		showInfoMessage("Oh you found something! " + currentLocation.item.description + " Take it! It could be useful.");
+	} else {
+	showInfoMessage(message);
+	}
+}
 
 function useItems(currentLocation) {
   var message ="You do not have an item to be used here.";
@@ -82,4 +78,8 @@ function prayToAbbubaker() {
   } else {
     alert("You have failed the riddle. Pray and think harder!");
   }
+}
+
+function Reload() {
+  location.reload();
 }
