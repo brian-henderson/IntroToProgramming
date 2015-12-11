@@ -86,12 +86,12 @@ input[type=text] {
 
 #mapImg  {
     height: 14em;
-    width: 55%;
+    width: 40%;
     opacity: .8;
     padding-bottom: 3px;
     background-color: black;
     margin: auto;
-    margin-bottom: 2em;
-    background-size: 100% 100%;
+    margin-bottom: 1em;
+
 }
 

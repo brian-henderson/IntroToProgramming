@@ -62,7 +62,6 @@ function useItems(currentLocation) {
         player.inventory = [];
       }
   } else if (locations[5].item === 0) {
-      //document.getElementById("mapImg").style.backgroundImage = "url('secretMap.png')";
       updateMap();
       showInfoMessage("Your map is now complete! Check it out!");
   } else  {

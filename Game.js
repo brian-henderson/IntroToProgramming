@@ -115,14 +115,12 @@ function startGame() {
 }
 
 function updateMap() {
-	
 	if (locations[5].item === 0) {
 		document.getElementById("mapImg").style.background = "url('mapSecret.png')";
 	} else {
 		document.getElementById("mapImg").style.background = "url('mapNormal.png')";
 	}
+	document.getElementById("mapImg").style.backgroundSize = "100% 100%";
 }
-
-
 
 window.onload = startGame;
