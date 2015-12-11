@@ -34,7 +34,7 @@ var locations = [
 	new GameLocation ("Temple Pyramid", "You have entered the pyramid structure! Time to explore! Who knows what you might find!", 0, "insidePyramid.jpg"),
 	new GameLocation ("Temple Pyramid East Room", "After exploring in the pyramid, you have come across this bare room with a chest in it.", amulet, "templeRoom.jpg"),
 	new GameLocation ("Temple Pyramid Throne", "You have entered the Great Iron Throne Room. Sitting on the throne is a corpse holding the Great Ancient Staff of Aboubaker! You also notice on the wall a picture. The picture has a cross, a circle and the staff all pointing towards the temple statue. It looks like three different shaped opjects are needed to open the secret underground temple! TAKE the staff and go investigate some more.", ancientStaff, "templeThrone.png"),
-	new GameLocation ("Game Over", "You fell through the bridge and died. Try looking for something to cover the whole in the bridge.", 0, "gameOver.jpg")
+	new GameLocation ("Game Over", "You fell through the bridge and died. Try looking for something to cover the whole in the bridge.", 0, "gameOver.png")
 ];
 
 var navigation = [
@@ -52,7 +52,8 @@ var navigation = [
 	[ null, null, null, locations[8] ],
 	[ locations[13], locations[12], locations[8], null ],
 	[ null, null, null, locations[11] ],
-	[ null, null, locations[11], null ]
+	[ null, null, locations[11], null ],
+	[ null, null, null, null ]
 ];
 
 function dirToStr(dir) {
