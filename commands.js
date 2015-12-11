@@ -47,20 +47,6 @@ function processTextCommand() {
     }
 } 
 
-function goToTempleStatue() {
-  player.currentLocation = 10;
-  var winMessage = "You have come back to the statue and with the items you have, you have the keys to gain access to the Secret Underground Temple! BUT you don't have the knowledge to go anyfurther. Maybe next time you will finally find out what is beneath the temple. Thanks for playing!";
-
-  if (locations[9].item === 0 && locations[12].item === 0 && locations[13].item === 0) {
-    showMessage(winMessage);
-    disable(true, true, true, true);
-  } else {
-    showMessage(locations[10].description);
-    updateScore(locations[10]);
-    disable(true, true, false, true); 
-  }
-}
-
 function useItems(currentLocation) {
   var message ="You do not have an item to be used here.";
 
@@ -92,16 +78,3 @@ function prayToAbbubaker() {
     alert("You have failed the riddle. Pray and think harder!");
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

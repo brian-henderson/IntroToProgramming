@@ -111,4 +111,3 @@ function prevMoves (dir){
 		player.breadcrumbTrail.push("ERROR ");
 	}
 }
-

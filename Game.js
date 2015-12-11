@@ -110,5 +110,3 @@ function gameEnd () {
     document.getElementById("southBtn").disabled=true;
     document.getElementById("westBtn").disabled=true;
 }
-
-
