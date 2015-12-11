@@ -10,7 +10,8 @@ var player = {
 	currentLocation: [],
 	pointsEarned: 0,
 	inventory: [],
-	breadcrumbTrail: ["", "", "", "", ""]
+	breadcrumbTrail: ["", "", "", "", ""],
+	currentMap: ""
 };
 
 function showScore(descrip) {
@@ -110,6 +111,18 @@ function startGame() {
 	showScene(startMsg);
 	disableBtns(player.currentLocation);
 	updateBackground(player.currentLocation);
+	updateMap();
 }
+
+function updateMap() {
+	
+	if (locations[5].item === 0) {
+		document.getElementById("mapImg").style.background = "url('mapSecret.png')";
+	} else {
+		document.getElementById("mapImg").style.background = "url('mapNormal.png')";
+	}
+}
+
+
 
 window.onload = startGame;

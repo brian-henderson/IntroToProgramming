@@ -64,9 +64,10 @@ h2 {
     background-position: center center;
     background-size: 100%;
     height: 28em;
-    background-color: white;
+    background-color: black;
     margin-bottom: 1em;
-    text-align: center; 
+    text-align: center;
+    background-size: 100% 100%; 
 }
 
 #controls {
@@ -77,14 +78,20 @@ input[type=text] {
     width: 30ex;
 }
 
-#mapImg {
-	width: 100%;
-	opacity: .8;
-	padding-bottom: 3px;
-}
-
-img {
+#titleImg {
     width: 55%;
     opacity: .8;
     padding-bottom: 3px;
 }
+
+#mapImg  {
+    height: 14em;
+    width: 55%;
+    opacity: .8;
+    padding-bottom: 3px;
+    background-color: black;
+    margin: auto;
+    margin-bottom: 2em;
+    background-size: 100% 100%;
+}
+
