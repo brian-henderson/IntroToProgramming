@@ -74,32 +74,16 @@ function from(loc, dir) {
 }
 
 function move(dir) {
-    var nextLocation = from(player.currentLocation, dir); /* TODO Use the function above to get the destination. */
+    var nextLocation = from(player.currentLocation, dir); 
 
     if (nextLocation != null) {
-        player.currentLocation = nextLocation; //sets the players location to the next location selected
+        player.currentLocation = nextLocation;
 		prevMoves(dir);
 		updateDisplay(player.currentLocation); 
     } else {
-        showInfoMessage("You cannot go " + dirToStr(dir)); //displays an infomessage alerting player of invalid direction
+        showInfoMessage("You cannot go " + dirToStr(dir));
     }
 }
-
-function startGame() {
-	var startMsg = "Welcome! You have spent the past year searching the Atlantic and you think that you may " + 
-			 		"have finally found the island where the lost temple and treasure of the Great King " + 
-			        "Aboubaker is. There is much to explore on this island, you can try walking the coast but " +
-	    		    "it might be better to check out the jungle and explore the mysterys that lie ahead! " +
-					"Don't forget to examine (X) your location for any items that may help you later on.";
-	
-	player.currentLocation = locations[0];
-	showScene(startMsg);
-	disableBtns(player.currentLocation);
-	updateBackground(player.currentLocation);
-}
-
-window.onload = startGame;
-
 
 function prevMoves (dir){
 	if (dir === NORTH) {
