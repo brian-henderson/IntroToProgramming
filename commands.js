@@ -73,7 +73,7 @@ function prayToAbbubaker() {
   var riddle = prompt("You have prayed to the Great God of Abbubaker! If you seek guidance, you will need to answer my riddle. What is the difference between an old penny and a new quarter? (WARNING: you will lose 25 points for getting the answer right, but it will reveal important information.)");
   
   if (riddle.toUpperCase() === "24 CENTS"){
-    alert("Yahweh Abbubaker has pitied your prayers to him. In order to win you must find three objects(pendant, amulet, and an ancient staff) and bring them to the statue. Unlock the statue with these items to be glorious.");
+    showScene("Yahweh Abbubaker has pitied your prayers to him. In order to win you must find three objects(pendant, amulet, and an ancient staff) and bring them to the statue. Unlock the statue with these items to be glorious.");
     player.pointsEarned -=25;
   } else {
     alert("You have failed the riddle. Pray and think harder!");

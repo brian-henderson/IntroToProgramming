@@ -105,7 +105,7 @@ function startGame() {
 			 		"have finally found the island where the lost temple and treasure of the Great King " + 
 			        "Aboubaker is. There is much to explore on this island, you can try walking the coast but " +
 	    		    "it might be better to check out the jungle and explore the mysterys that lie ahead! " +
-					"Don't forget to examine (X) your location for any items that may help you later on.";
+					"Don't forget to examine (X) your location for any items that may help you later on. ";
 	
 	player.currentLocation = locations[0];
 	showScene(startMsg);
